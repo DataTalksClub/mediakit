@@ -1,0 +1,29 @@
+<section class="pt-24 pb-16 lg:pt-28 lg:pb-20 bg-background relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/[0.02] via-transparent to-transparent"></div>
+
+  <div class="section-container relative">
+    <div class="flex flex-col items-center text-center">
+      <div class="mb-8">
+        <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="DataTalks.Club" class="h-14 lg:h-18" />
+      </div>
+
+      <p class="text-lg text-muted-foreground max-w-2xl mb-12 leading-relaxed">
+        DataTalks.Club is the largest global online data community.
+        Partner with us to reach AI engineers, ML engineers, data engineers, and data scientists worldwide.
+      </p>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full max-w-4xl">
+        {% for stat in site.data.stats %}
+        <div class="stat-card group text-center">
+          <div class="w-12 h-12 rounded-xl mx-auto mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110" style="background-color: {{ stat.color }}15;">
+            {% capture stat_style %}color: {{ stat.color }};{% endcapture %}
+            {% include icon.html name=stat.icon class="w-6 h-6" style=stat_style %}
+          </div>
+          <div class="text-2xl lg:text-3xl font-bold text-foreground mb-1">{{ stat.value }}</div>
+          <div class="text-sm text-muted-foreground font-medium">{{ stat.label }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

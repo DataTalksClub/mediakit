@@ -1,0 +1,13 @@
+- label: Audience
+  href: "#audience"
+- label: Sponsorships
+  href: "#packages"
+  children:
+    - { label: Newsletter, href: "#newsletter" }
+    - { label: Workshop, href: "#workshop" }
+    - { label: Courses, href: "#courses" }
+    - { label: Social Media, href: "#social" }
+- label: Partners
+  href: "#sponsors"
+- label: Contact
+  href: "#contact"

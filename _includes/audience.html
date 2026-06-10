@@ -1,0 +1,50 @@
+<section id="audience" class="py-16 lg:py-20 bg-secondary relative">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+
+  <div class="section-container">
+    <div class="max-w-2xl mx-auto text-center mb-12">
+      <span class="tag mb-4">Community Insights</span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 tracking-tight">Audience Snapshot</h2>
+      <p class="text-muted-foreground text-lg leading-relaxed">
+        Highly engaged data professionals from around the world, across diverse roles, industries, and experience levels.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+      {% for chart in site.data.charts %}
+      <div class="premium-card p-6">
+        <h3 class="text-base font-semibold text-foreground mb-1">{{ chart.title }}</h3>
+        <p class="text-xs text-muted-foreground mb-4">Distribution breakdown</p>
+        <div class="h-44 flex items-center justify-center">
+          <canvas id="chart-{{ forloop.index }}" class="js-donut" data-chart-index="{{ forloop.index0 }}"></canvas>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-4">
+          {% for item in chart.data limit: chart.legend %}
+          <div class="flex items-center gap-2 text-xs">
+            <div class="w-2.5 h-2.5 rounded-full shadow-sm" style="background-color: {{ item.color }};"></div>
+            <span class="text-muted-foreground font-medium">{{ item.name }}</span>
+            <span class="text-foreground font-semibold">{{ item.value }}%</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="premium-card p-4 sm:p-6 flex flex-col overflow-hidden">
+        <h3 class="text-base font-semibold text-foreground mb-1">Topics of Interest</h3>
+        <p class="text-xs text-muted-foreground mb-4">What our community cares about</p>
+        <div class="flex-1 flex items-center justify-center overflow-visible">
+          <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-center items-center">
+            {% for t in site.data.topics %}
+            <span class="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 cursor-default whitespace-nowrap bg-brand-blue/10 text-brand-blue hover:bg-brand-blue/15">{{ t.topic }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.CHART_DATA = {{ site.data.charts | jsonify }};
+  </script>
+</section>

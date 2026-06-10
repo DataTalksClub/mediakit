@@ -1,0 +1,54 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+  <div class="section-container">
+    <div class="flex items-center justify-between h-14 lg:h-16">
+      <a href="#" class="flex items-center">
+        <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="DataTalks.Club" class="h-8 lg:h-10" />
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-6">
+        {% for item in site.data.nav %}
+        {% if item.children %}
+        <div class="relative group">
+          <a href="{{ item.href }}" class="text-sm font-medium text-muted-foreground hover:text-brand-blue transition-colors inline-flex items-center gap-1">
+            {{ item.label }}
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </a>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+            <div class="bg-card border border-border rounded-xl shadow-lg py-2 min-w-[170px]">
+              {% for child in item.children %}
+              <a href="{{ child.href }}" class="block px-4 py-2 text-sm text-muted-foreground hover:text-brand-blue hover:bg-secondary transition-colors">{{ child.label }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <a href="{{ item.href }}" class="text-sm font-medium text-muted-foreground hover:text-brand-blue transition-colors">{{ item.label }}</a>
+        {% endif %}
+        {% endfor %}
+      </nav>
+
+      <div class="hidden lg:block">
+        <a href="#contact" class="inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold bg-brand-blue text-white hover:bg-brand-blue-dark transition-colors">Become a Partner</a>
+      </div>
+
+      <button id="menu-toggle" class="lg:hidden p-2 text-foreground" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6" data-menu-icon="open"></i>
+        <i data-lucide="x" class="w-6 h-6 hidden" data-menu-icon="close"></i>
+      </button>
+    </div>
+
+    <nav id="mobile-menu" class="lg:hidden py-4 border-t border-border hidden">
+      <div class="flex flex-col gap-2">
+        {% for item in site.data.nav %}
+        <a href="{{ item.href }}" data-mobile-link class="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-brand-blue hover:bg-secondary rounded-lg transition-colors">{{ item.label }}</a>
+        {% if item.children %}
+        {% for child in item.children %}
+        <a href="{{ child.href }}" data-mobile-link class="pl-8 pr-4 py-2 text-sm text-muted-foreground hover:text-brand-blue hover:bg-secondary rounded-lg transition-colors">{{ child.label }}</a>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+        <a href="#contact" data-mobile-link class="mx-4 mt-2 text-center px-4 py-3 rounded-lg text-sm font-semibold bg-brand-blue text-white">Become a Partner</a>
+      </div>
+    </nav>
+  </div>
+</header>

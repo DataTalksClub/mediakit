@@ -1,0 +1,21 @@
+# Ordered by start month (earliest first).
+- name: Data Engineering
+  date: January
+  learners: "20K+"
+  url: https://github.com/DataTalksClub/data-engineering-zoomcamp
+- name: MLOps
+  date: May
+  learners: "10K+"
+  url: https://github.com/DataTalksClub/mlops-zoomcamp
+- name: LLM
+  date: June
+  learners: "10K+"
+  url: https://github.com/DataTalksClub/llm-zoomcamp
+- name: Machine Learning
+  date: September
+  learners: "10K+"
+  url: https://github.com/DataTalksClub/machine-learning-zoomcamp
+- name: AI Dev Tools
+  date: November
+  learners: "10K+"
+  url: https://github.com/DataTalksClub/ai-dev-tools-zoomcamp

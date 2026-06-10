@@ -1,0 +1,16 @@
+- topic: Machine Learning
+  hot: true
+- topic: AI
+  hot: true
+- topic: MLOps
+  hot: true
+- topic: Data Engineering
+  hot: false
+- topic: Data Science
+  hot: false
+- topic: Data Analytics
+  hot: false
+- topic: Career Growth
+  hot: false
+- topic: Leadership
+  hot: false

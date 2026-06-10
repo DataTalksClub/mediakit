@@ -1,0 +1,11 @@
+<button type="button" data-zoom-src="{{ '/assets/images/' | append: include.image | relative_url }}"
+  class="group relative rounded-xl overflow-hidden border border-border hover:border-brand-blue/40 transition-all cursor-zoom-in shadow-sm hover:shadow-md w-full block">
+  <img src="{{ '/assets/images/' | append: include.image | relative_url }}" alt="{{ include.alt }} example"
+    class="w-full {{ include.height | default: 'h-28' }} object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+  <div class="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+    <div class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+      <i data-lucide="zoom-in" class="w-5 h-5 text-foreground"></i>
+    </div>
+  </div>
+  <span class="absolute bottom-2 right-2 text-[10px] px-2 py-1 rounded-md bg-card/95 text-muted-foreground font-medium shadow-sm">View example</span>
+</button>

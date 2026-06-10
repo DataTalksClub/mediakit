@@ -1,0 +1,51 @@
+# Audience snapshot donut charts. `legend` = how many items to show in the legend row.
+- title: Job Function
+  legend: 4
+  data:
+    - { name: Data Engineering, value: 28.5, color: "hsl(215, 80%, 50%)" }
+    - { name: Data Science & ML, value: 26.8, color: "hsl(180, 70%, 45%)" }
+    - { name: Analytics, value: 16.8, color: "hsl(150, 60%, 45%)" }
+    - { name: Software Dev, value: 13.1, color: "hsl(280, 60%, 55%)" }
+    - { name: Management, value: 7.0, color: "hsl(340, 70%, 55%)" }
+    - { name: Others, value: 7.8, color: "hsl(40, 80%, 55%)" }
+
+- title: Geography
+  legend: 4
+  data:
+    - { name: North America, value: 37.2, color: "hsl(215, 80%, 50%)" }
+    - { name: Europe, value: 25.1, color: "hsl(180, 70%, 45%)" }
+    - { name: Asia-Pacific, value: 24.5, color: "hsl(150, 60%, 45%)" }
+    - { name: Africa, value: 6.8, color: "hsl(280, 60%, 55%)" }
+    - { name: South America, value: 3.8, color: "hsl(340, 70%, 55%)" }
+    - { name: Middle East, value: 1.8, color: "hsl(40, 80%, 55%)" }
+    - { name: Other, value: 0.8, color: "hsl(25, 75%, 50%)" }
+
+- title: Career Level
+  legend: 4
+  data:
+    - { name: Senior, value: 40.6, color: "hsl(215, 80%, 50%)" }
+    - { name: Entry-level, value: 35.6, color: "hsl(180, 70%, 45%)" }
+    - { name: Team Leads, value: 10.1, color: "hsl(150, 60%, 45%)" }
+    - { name: Directors+, value: 3.7, color: "hsl(280, 60%, 55%)" }
+    - { name: Students, value: 3.0, color: "hsl(340, 70%, 55%)" }
+    - { name: Other, value: 7.0, color: "hsl(40, 80%, 55%)" }
+
+- title: Industry
+  legend: 4
+  data:
+    - { name: Technology, value: 40.6, color: "hsl(215, 80%, 50%)" }
+    - { name: Finance, value: 9.4, color: "hsl(180, 70%, 45%)" }
+    - { name: Education, value: 9.1, color: "hsl(150, 60%, 45%)" }
+    - { name: Healthcare, value: 8.1, color: "hsl(280, 60%, 55%)" }
+    - { name: Retail, value: 7.4, color: "hsl(340, 70%, 55%)" }
+    - { name: Other, value: 25.4, color: "hsl(40, 80%, 55%)" }
+
+- title: Company Size
+  legend: 6
+  data:
+    - { name: "1000+", value: 29.9, color: "hsl(215, 80%, 50%)" }
+    - { name: "201-1000", value: 17.8, color: "hsl(180, 70%, 45%)" }
+    - { name: Freelance, value: 14.8, color: "hsl(150, 60%, 45%)" }
+    - { name: "51-200", value: 12.4, color: "hsl(280, 60%, 55%)" }
+    - { name: "11-50", value: 12.4, color: "hsl(340, 70%, 55%)" }
+    - { name: "1-10", value: 12.7, color: "hsl(40, 80%, 55%)" }

@@ -1,0 +1,151 @@
+newsletter:
+  - title: Secondary Slot
+    price: "€1,000"
+    description: "Placed in the middle of the newsletter, a high-visibility slot perfect for events, webinars, and conferences."
+    features:
+      - Positioned in the middle of the newsletter
+      - Great for events, webinars, conferences & community initiatives
+    metrics:
+      - { value: "250-300", label: clicks }
+    image: newsletter-secondary.png
+    example_url: https://us19.campaign-archive.com/?u=0d7822ab98152f5afc118c176&id=482b851777
+    example_label: Open the live newsletter
+  - title: Primary Slot
+    price: "€1,500"
+    description: "At the very top of our weekly newsletter, opened every Monday by data engineers, ML engineers, and analytics leaders."
+    features:
+      - Featured at the very top — our most visible placement
+      - Best for major launches, courses, e-books & guides
+    metrics:
+      - { value: "700-1,500", label: clicks }
+    image: newsletter-primary.png
+    popular: true
+    example_url: https://us19.campaign-archive.com/?u=0d7822ab98152f5afc118c176&id=7cbf64d3d0
+    example_label: Open the live newsletter
+  - title: Stand-Alone
+    price: "€2,500"
+    description: "A dedicated email to our entire audience featuring only your content — ideal for launches and lead-generation campaigns."
+    features:
+      - A dedicated send with no other sponsors and no other content
+      - Full control over the send date and time
+    metrics:
+      - { value: "700-2,000", label: clicks }
+    image: newsletter-standalone.png
+    example_url: https://us19.campaign-archive.com/?u=0d7822ab98152f5afc118c176&id=314cda7d4b
+    example_label: Open the live newsletter
+
+workshop:
+  title: Stand-Alone Workshop
+  price: "€5,000"
+  extra_price: "+€5,000 if recorded by Alexey"
+  description: "Live, hands-on code-along sessions led by your speaker and streamed on our YouTube channel. The fastest way to demonstrate your tool in action."
+  features:
+    - "Promotion across all channels: Luma, Slack, social media, website"
+    - Collaborative planning aligned with community interests
+    - Live YouTube stream on our main channel
+    - "Lead collection: attendees who opt-in share contact details"
+    - "Recording reuse: the session remains on YouTube forever"
+    - Optional dry run rehearsal before going live
+  metrics:
+    subscribers: "79.1K"
+    avg_views: "2,000-7,000"
+    live: "100"
+  example:
+    label: Previous workshops playlist
+    url: https://www.youtube.com/playlist?list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR
+  image: workshop-community.png
+  video_url: https://www.youtube.com/watch?v=v_jbmhVWBvM
+
+courses:
+  - title: Mention
+    price: "€5,000"
+    extra_price: "&nbsp;"
+    description: "Get your brand featured in one of our popular Zoomcamp courses, followed by thousands of learners worldwide."
+    features:
+      - Logo placement on course page
+      - Mention in course launch stream
+      - Encouragement for students to try your product
+      - "Optional demo video (up to 10 min, open-source only)"
+      - Shout-out from the official Telegram channel
+    metrics:
+      - { value: "5K-10K", label: views }
+    image: course-mention.png
+    example_url: https://github.com/DataTalksClub/machine-learning-zoomcamp/blob/e787517e9c9555fc873d1be262193bfaecc0d9d2/08-deep-learning/01b-saturn-cloud.md
+    example_label: See it in the course
+  - title: Workshop
+    price: "€10,000"
+    extra_price: "+€5,000 if recorded by Alexey"
+    description: "A hands-on workshop inside a course module, teaching students to apply concepts using your product."
+    features:
+      - Logo placement on course page
+      - Mention in course launch stream
+      - Live-streamed workshop, part of the course curriculum
+      - "Dedicated homework assignment (3 questions)"
+      - Optional raffle/giveaway for participants
+    metrics:
+      - { value: "5K-10K", label: views }
+    image: course-workshop.png
+    popular: true
+    example_url: https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/cohorts/2024/workshops/dlt.md
+    example_label: See the dlt workshop
+  - title: Full Module
+    price: "€20,000"
+    extra_price: "+€5,000 if recorded by Alexey"
+    description: "Our deepest integration: your tool is used to teach a full module topic that students use throughout."
+    features:
+      - Logo + mention in the launch stream
+      - "Full module (5-10 lessons) featuring your tool"
+      - "Homework assignment (6-7 questions) based on your product"
+      - Office hours with the course participants
+      - Evergreen visibility on GitHub and YouTube
+      - For open-source tools only
+    metrics:
+      - { value: "10K-50K", label: total views }
+    image: course-module.png
+    example_url: https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/cohorts/2024/02-workflow-orchestration
+    example_label: See the module
+
+why_sponsor_courses:
+  - title: High-intent adoption
+    description: Learners follow step-by-step labs with your product
+    icon: target
+  - title: Scale
+    description: 10K-20K registered learners per cohort
+    icon: trending-up
+  - title: Social proof
+    description: Learners share what they build on social media
+    icon: globe
+  - title: Evergreen
+    description: Content lives forever on GitHub & YouTube
+    icon: sparkles
+
+social:
+  title: Alexey's Personal Social Media
+  price: "€1,200"
+  description: "Promote your content with authentic, personal recommendations from Alexey Grigorev — shared on both his LinkedIn and X."
+  options:
+    - Videos about a product/event
+    - Posts with custom media and recommendations
+    - Giveaways
+    - Custom ideas welcome
+  platforms:
+    - name: LinkedIn
+      followers: "67K"
+      impressions: "10K-45K"
+      image: alexey-linkedin.png
+      profile_url: "https://www.linkedin.com/in/agrigorev/"
+      post_url: "https://www.linkedin.com/posts/agrigorev_testing-is-hard-end-to-end-testing-with-activity-7422925840914726912-dIXr/"
+    - name: X
+      followers: "29K"
+      impressions: "2K-10K"
+      image: alexey-twitter.png
+      profile_url: "https://x.com/Al_Grigor"
+      post_url: "https://x.com/Al_Grigor/status/2017160202525569536"
+
+other_ideas:
+  - Swag giveaways
+  - Hackathons & competitions
+  - Blog posts
+  - Course design help
+  - Roundtable discussions
+  - Sponsored lunches & breakfasts

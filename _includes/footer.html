@@ -1,0 +1,27 @@
+<footer class="bg-secondary border-t border-border py-8">
+  <div class="section-container">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+      <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="DataTalks.Club" class="h-8" />
+
+      <div class="flex flex-wrap justify-center gap-6">
+        {% for link in site.data.footer.links %}
+        <a href="{{ link.href }}" target="_blank" rel="noopener noreferrer"
+          class="text-sm text-muted-foreground hover:text-brand-blue transition-colors">{{ link.label }}</a>
+        {% endfor %}
+      </div>
+
+      <div class="flex items-center gap-3">
+        {% for social in site.data.footer.social %}
+        <a href="{{ social.href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ social.label }}"
+          class="w-9 h-9 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-brand-blue hover:border-brand-blue transition-colors">
+          {% include icon.html name=social.icon class="w-4 h-4" %}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="mt-6 pt-6 border-t border-border text-center">
+      <p class="text-xs text-muted-foreground">© {{ site.time | date: "%Y" }} DataTalks.Club. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

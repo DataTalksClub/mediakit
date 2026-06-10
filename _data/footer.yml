@@ -1,0 +1,11 @@
+links:
+  - { label: Website, href: https://datatalks.club }
+  - { label: Newsletter, href: "https://us19.campaign-archive.com/home/?u=0d7822ab98152f5afc118c176&id=97178021aa" }
+  - { label: Events, href: https://lu.ma/dtc-events }
+  - { label: GitHub, href: https://github.com/DataTalksClub }
+
+social:
+  - { icon: youtube, href: https://www.youtube.com/@DataTalksClub, label: YouTube }
+  - { icon: linkedin, href: https://www.linkedin.com/company/datatalks-club, label: LinkedIn }
+  - { icon: x, href: https://x.com/DataTalksClub, label: X }
+  - { icon: message-square, href: https://datatalks.club/slack.html, label: Slack }

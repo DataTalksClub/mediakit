@@ -1,0 +1,213 @@
+{% assign p = site.data.packages %}
+<section id="packages" class="py-16 lg:py-24 bg-secondary relative">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+
+  <div class="section-container">
+    <div class="max-w-2xl mx-auto text-center mb-16">
+      <span class="tag mb-4">Partnership Options</span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 tracking-tight">Sponsorship Formats</h2>
+      <p class="text-muted-foreground text-lg leading-relaxed">
+        Our packages are designed for authentic brand integration. Mix and match to create a custom partnership.
+      </p>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="mb-16 scroll-mt-24" id="newsletter">
+      {% include section-header.html icon="mail" title="Newsletter" subtitle="Reach 120K+ data professionals directly in their inbox" %}
+      <div class="grid md:grid-cols-3 gap-5">
+        {% for pkg in p.newsletter %}{% include package-card.html pkg=pkg %}{% endfor %}
+      </div>
+      <p class="text-center text-sm text-muted-foreground mt-6 max-w-2xl mx-auto">
+        Every placement includes a content template we refine together, plus a detailed analytics report (opens, clicks, CTR) after the ad runs.
+      </p>
+      <div class="text-center mt-4">
+        <a href="https://us19.campaign-archive.com/home/?u=0d7822ab98152f5afc118c176&id=97178021aa" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm font-medium text-brand-blue hover:text-brand-blue-dark transition-colors">
+          Browse newsletter archive
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Workshop -->
+    <div class="mb-16 scroll-mt-24" id="workshop">
+      {% capture workshop_subtitle %}Live hands-on sessions for our {{ p.workshop.metrics.subscribers }} YouTube subscribers{% endcapture %}
+      {% include section-header.html icon="video" title="Workshop" subtitle=workshop_subtitle %}
+      {% assign w = p.workshop %}
+      <div class="premium-card p-6 sm:p-8">
+        <!-- Header: title + description, price -->
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+          <div>
+            <h4 class="font-bold text-foreground text-xl mb-2">{{ w.title }}</h4>
+            <p class="text-muted-foreground leading-relaxed max-w-xl">{{ w.description }}</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <div class="price-badge">{{ w.price }}</div>
+            <div class="text-xs text-muted-foreground mt-2">{{ w.extra_price }}</div>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-10">
+          <!-- Left: visual proof + stats -->
+          <div class="flex flex-col">
+            <div>
+              {% include zoom-image.html image=w.image alt="Workshop" height="h-48 sm:h-56" %}
+              <a href="{{ w.video_url }}" target="_blank" rel="noopener noreferrer"
+                class="mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-brand-blue hover:text-brand-blue-dark transition-colors">
+                Watch this workshop
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+            <div class="mt-auto pt-6 flex items-baseline gap-x-10 gap-y-1 flex-wrap">
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-2xl font-bold text-brand-blue">{{ w.metrics.avg_views }}</span>
+                <span class="text-xs text-muted-foreground">views per workshop</span>
+              </div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-2xl font-bold text-brand-blue">~{{ w.metrics.live }}</span>
+                <span class="text-xs text-muted-foreground">joining live</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: what's included -->
+          <div class="flex flex-col">
+            <h5 class="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">What's Included</h5>
+            <div class="space-y-1 flex-1">
+              {% for feature in w.features %}
+              <div class="feature-item">{{ feature }}</div>
+              {% endfor %}
+            </div>
+            <div class="mt-6">
+              <a href="{{ w.example.url }}" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm font-medium text-brand-blue hover:text-brand-blue-dark transition-colors">
+                {{ w.example.label }}
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Courses -->
+    <div class="mb-16 scroll-mt-24" id="courses">
+      {% include section-header.html icon="book-open" title="Courses" subtitle="Zoomcamp course sponsorships" %}
+
+      <div class="premium-card p-6 mb-6">
+        <div class="flex items-baseline justify-between flex-wrap gap-2 mb-4">
+          <h4 class="text-base font-semibold text-foreground">Our Zoomcamp courses</h4>
+          <span class="text-sm text-muted-foreground">60K+ learners yearly</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          {% for course in site.data.courses %}
+          <a href="{{ course.url }}" target="_blank" rel="noopener noreferrer"
+            class="group p-4 rounded-xl bg-secondary/50 hover:bg-secondary border border-transparent hover:border-brand-blue/20 transition-all flex flex-col cursor-pointer">
+            <div class="font-medium text-foreground text-sm group-hover:text-brand-blue transition-colors mb-2">{{ course.name }}</div>
+            <div class="text-xs text-brand-blue font-semibold mb-1">{{ course.learners }} learners</div>
+            <div class="flex items-center gap-1.5 text-xs text-muted-foreground mt-auto">
+              <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+              {{ course.date }}
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 mb-6">
+        {% for pkg in p.courses %}{% include package-card.html pkg=pkg %}{% endfor %}
+      </div>
+
+      <div class="premium-card p-6 bg-gradient-to-br from-brand-blue/[0.03] to-transparent">
+        <h4 class="text-base font-semibold text-foreground mb-5">Why sponsor courses?</h4>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {% for item in p.why_sponsor_courses %}
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="{{ item.icon }}" class="w-5 h-5 text-brand-blue"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-foreground text-sm mb-1">{{ item.title }}</div>
+              <div class="text-xs text-muted-foreground leading-relaxed">{{ item.description }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Social -->
+    <div class="mb-16 scroll-mt-24" id="social">
+      {% include section-header.html icon="megaphone" title="Alexey's Social Media" subtitle="Personal recommendations from the founder" %}
+      {% assign s = p.social %}
+      <div class="premium-card p-8">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+          <div>
+            <h4 class="font-bold text-foreground text-xl mb-2">{{ s.title }}</h4>
+            <p class="text-muted-foreground leading-relaxed max-w-xl">{{ s.description }}</p>
+          </div>
+          <div class="price-badge flex-shrink-0">{{ s.price }}</div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-8 lg:gap-10">
+          {% for pf in s.platforms %}
+          <div class="flex flex-col">
+            <h5 class="text-sm font-semibold uppercase tracking-wider mb-3">
+              <a href="{{ pf.profile_url }}" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-foreground hover:text-brand-blue transition-colors">
+                {{ pf.name }}
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </h5>
+            {% include zoom-image.html image=pf.image alt=pf.name %}
+            <div class="mt-4 space-y-1">
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-xl font-bold text-brand-blue">{{ pf.impressions }}</span>
+                <span class="text-xs text-muted-foreground">impressions per post</span>
+              </div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-xl font-bold text-brand-blue">{{ pf.followers }}</span>
+                <span class="text-xs text-muted-foreground">followers</span>
+              </div>
+            </div>
+            <a href="{{ pf.post_url }}" target="_blank" rel="noopener noreferrer"
+              class="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-brand-blue hover:text-brand-blue-dark transition-colors">
+              Example post
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+          {% endfor %}
+
+          <!-- Options -->
+          <div>
+            <h5 class="text-sm font-semibold text-foreground uppercase tracking-wider mb-3">Available Options</h5>
+            <div class="space-y-1">
+              {% for opt in s.options %}
+              <div class="feature-item">{{ opt }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Ideas -->
+    <div class="premium-card p-8">
+      <div class="flex flex-col lg:flex-row lg:items-center gap-6">
+        <div class="flex-1">
+          <h3 class="text-xl font-bold text-foreground mb-3">Other Ideas</h3>
+          <p class="text-muted-foreground mb-5">We're always open to exploring new ideas and creating customized solutions:</p>
+          <div class="flex flex-wrap gap-2">
+            {% for idea in p.other_ideas %}
+            <span class="px-4 py-2 rounded-full bg-secondary text-sm font-medium text-foreground border border-border/50 hover:border-brand-blue/30 transition-colors cursor-default">{{ idea }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary gap-2 self-start lg:self-center">
+          Discuss your custom idea
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
