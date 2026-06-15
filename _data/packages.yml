@@ -105,6 +105,36 @@ courses:
     example_url: https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/cohorts/2024/02-workflow-orchestration
     example_label: See the module
 
+podcast:
+  title: Podcast Episode
+  price: "€1,500"
+  description: "A focused conversation with Alexey for data, ML, AI, and software engineering practitioners, published on YouTube and podcast platforms."
+  image: podcast.jpg
+  features:
+    - Topic planning aligned with community interests
+    - Published on YouTube and podcast platforms
+    - Promotion through our newsletter and social channels
+    - Evergreen episode page with sponsor link
+  metrics:
+    - { value: "1,000+", label: listens per episode }
+  example_url: https://datatalks.club/podcast/building-production-search-systems.html
+  example_label: Listen to an example episode
+
+guest_post:
+  title: Guest Post
+  price: "€1,500"
+  description: "A practical article for the DataTalks.Club audience, written around a topic that helps data and AI practitioners solve real problems."
+  image: guest-post.jpg
+  features:
+    - Editorial planning and topic review
+    - Published on the DataTalks.Club blog
+    - Promotion through our newsletter and social channels
+    - Evergreen article page with sponsor link
+  metrics:
+    - { value: "60K-100K", label: monthly website visits }
+  example_url: https://datatalks.club/blog/open-source-free-ai-agent-evaluation-tools.html
+  example_label: Read an example guest post
+
 why_sponsor_courses:
   - title: High-intent adoption
     description: Learners follow step-by-step labs with your product
@@ -145,7 +175,6 @@ social:
 other_ideas:
   - Swag giveaways
   - Hackathons & competitions
-  - Blog posts
   - Course design help
   - Roundtable discussions
   - Sponsored lunches & breakfasts

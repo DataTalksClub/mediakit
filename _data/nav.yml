@@ -6,6 +6,8 @@
     - { label: Newsletter, href: "#newsletter" }
     - { label: Workshop, href: "#workshop" }
     - { label: Courses, href: "#courses" }
+    - { label: Podcast, href: "#podcast" }
+    - { label: Guest Post, href: "#guest-post" }
     - { label: Social Media, href: "#social" }
 - label: Partners
   href: "#sponsors"

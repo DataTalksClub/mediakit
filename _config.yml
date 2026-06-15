@@ -4,7 +4,7 @@ author: DataTalks.Club
 keywords: "data science, machine learning, MLOps, data engineering, sponsorship, partnership, media kit, data community"
 url: https://datatalks.club
 twitter: "@DataTalksClub"
-og_image: https://lovable.dev/opengraph-image-p98pqg.png
+og_image: /assets/images/og-image.jpg
 
 exclude:
   - README.md
