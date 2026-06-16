@@ -52,7 +52,7 @@ workshop:
     live: "100"
   example:
     label: Previous workshops playlist
-    url: https://www.youtube.com/playlist?list=PL3MmuxUbc_hIhxl5Ji8t4O6lPAOpHaCLR
+    url: https://www.youtube.com/playlist?list=PL3MmuxUbc_hKXoe5VllAqUa0nTp0k9Mbl
   image: workshop-community.png
   video_url: https://www.youtube.com/watch?v=v_jbmhVWBvM
 
