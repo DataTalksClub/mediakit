@@ -5,10 +5,10 @@
   children:
     - { label: Newsletter, href: "#newsletter" }
     - { label: Workshop, href: "#workshop" }
-    - { label: In-Person Events, href: "#in-person-events" }
     - { label: Courses, href: "#courses" }
     - { label: Podcast, href: "#podcast" }
     - { label: Guest Post, href: "#guest-post" }
+    - { label: In-Person Events, href: "#in-person-events" }
     - { label: Social Media, href: "#social" }
 - label: Partners
   href: "#sponsors"
