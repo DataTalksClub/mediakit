@@ -56,6 +56,39 @@ workshop:
   image: workshop-community.png
   video_url: https://www.youtube.com/watch?v=v_jbmhVWBvM
 
+in_person:
+  intro: "Co-hosted Berlin events for data, ML, and AI practitioners who want to learn, meet peers, and talk with builders in person."
+  contact_note: "For meetup pricing, venue scope, recording, and event details, reach out to Alexey."
+  stats:
+    - { value: "~9,000", label: "Berlin Meetup members" }
+    - { value: "100+", label: "people attend in person" }
+  packages:
+    - title: Co-Hosted Meetup
+      contact_label: Contact Alexey
+      description: "An in-person community evening with practical talks, Q&A, and networking, organized together with your team."
+      features:
+        - Agenda, speakers, panel/Q&A, and networking format
+        - Promotion through Meetup and community channels
+        - Registration, attendee communication, and check-in support
+        - Optional sponsor table, swag, or community giveaway
+      image: meetup-in-person.jpg
+      example_url: https://www.meetup.com/berlin-datatalks-club/events/314179341/
+      example_label: See the Zalando meetup
+      icon: users
+    - title: In-Person Workshop
+      price: "€5,000"
+      extra_price: "+€5,000 if recorded by Alexey"
+      description: "A hands-on session where participants learn a concrete skill, build something, and connect the lesson to your product or topic."
+      features:
+        - Practical topic and exercises built around a learning outcome
+        - Alexey-led hands-on format with live guidance and Q&A
+        - Promotion through Meetup and community channels
+        - Attendee communication and optional recording
+      image: in-person-workshop.jpg
+      example_url: https://www.meetup.com/berlin-datatalks-club/events/313061198/
+      example_label: See the Exasol workshop
+      icon: laptop
+
 courses:
   - title: Mention
     price: "€5,000"

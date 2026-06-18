@@ -90,6 +90,81 @@
       </div>
     </div>
 
+    <!-- In-Person Events -->
+    <div class="mb-16 scroll-mt-24" id="in-person-events">
+      {% include section-header.html icon="map-pin" title="In-Person Events" subtitle="Berlin meetups and hands-on workshops with the local data community" %}
+      {% assign ip = p.in_person %}
+
+      <div class="premium-card p-5 sm:p-6 mb-5">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <p class="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">{{ ip.intro }}</p>
+          <div class="grid grid-cols-2 gap-5 sm:gap-8 flex-shrink-0">
+            {% for stat in ip.stats %}
+            <div>
+              <div class="text-lg sm:text-2xl font-bold text-brand-blue">{{ stat.value }}</div>
+              <div class="text-xs text-muted-foreground leading-tight">{{ stat.label }}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-5">
+        {% for event in ip.packages %}
+        <div class="premium-card p-5 sm:p-6 h-full flex flex-col relative">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="{{ event.icon }}" class="w-[18px] h-[18px] sm:w-5 sm:h-5 text-brand-blue"></i>
+              </div>
+              <h4 class="font-semibold text-foreground text-base sm:text-lg">{{ event.title }}</h4>
+            </div>
+            {% if event.price %}
+            <div class="text-right flex-shrink-0">
+              <div class="price-badge !text-base sm:!text-lg !px-3 sm:!px-4 !py-1.5 sm:!py-2">{{ event.price }}</div>
+              {% if event.extra_price %}<div class="text-xs text-muted-foreground mt-2">{{ event.extra_price }}</div>{% endif %}
+            </div>
+            {% elsif event.contact_label %}
+            <a href="#contact" class="tag-outline text-xs whitespace-nowrap flex-shrink-0">{{ event.contact_label }}</a>
+            {% endif %}
+          </div>
+
+          <p class="text-sm text-muted-foreground leading-relaxed mb-4">{{ event.description }}</p>
+
+          <div class="mb-4">
+            {% include zoom-image.html image=event.image alt=event.title height="h-32 sm:h-40" %}
+            <a href="{{ event.example_url }}" target="_blank" rel="noopener noreferrer"
+              class="mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-brand-blue hover:text-brand-blue-dark transition-colors">
+              {{ event.example_label }}
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <div class="space-y-0.5 mb-4 flex-1">
+            {% for feature in event.features %}
+            <div class="feature-item !text-xs sm:!text-sm !py-1">{{ feature }}</div>
+            {% endfor %}
+          </div>
+
+          {% if event.metrics %}
+          <div class="mt-auto pt-3 border-t border-border/60 flex items-baseline flex-wrap gap-x-6 gap-y-1">
+            {% for m in event.metrics %}
+            <div class="flex items-baseline gap-1.5">
+              <span class="text-lg font-bold text-brand-blue">{{ m.value }}</span>
+              <span class="text-xs text-muted-foreground">{{ m.label }}</span>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <p class="text-center text-sm text-muted-foreground mt-6 max-w-2xl mx-auto">
+        {{ ip.contact_note }}
+      </p>
+    </div>
+
     <!-- Courses -->
     <div class="mb-16 scroll-mt-24" id="courses">
       {% include section-header.html icon="book-open" title="Courses" subtitle="Zoomcamp course sponsorships" %}
