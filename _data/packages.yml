@@ -65,6 +65,7 @@ in_person:
   packages:
     - title: Co-Hosted Meetup
       contact_label: Contact Alexey
+      extra_price: "&nbsp;"
       description: "An in-person community evening with practical talks, Q&A, and networking, organized together with your team."
       features:
         - Agenda, speakers, panel/Q&A, and networking format
