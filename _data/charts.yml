@@ -55,6 +55,7 @@
 
 - title: Company Size
   legend: 6
+  legend_columns: 3
   data:
     - { name: "1000+", value: 29.9, color: "hsl(215, 80%, 50%)" }
     - { name: "201-1000", value: 17.8, color: "hsl(180, 70%, 45%)" }
