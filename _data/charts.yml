@@ -2,14 +2,17 @@
 - title: Job Function
   legend: 4
   data:
-    - { name: Data Engineering, value: 28.5, color: "hsl(215, 80%, 50%)" }
-    - { name: Data Science & ML, value: 26.8, color: "hsl(180, 70%, 45%)" }
-    - { name: Analytics, value: 16.8, color: "hsl(150, 60%, 45%)" }
-    - { name: Software Dev, value: 13.1, color: "hsl(280, 60%, 55%)" }
-    - { name: Management & Consulting, value: 7.0, color: "hsl(340, 70%, 55%)" }
-    - { name: Research & Education, value: 3.4, color: "hsl(40, 80%, 55%)" }
-    - { name: Other, value: 2.7, color: "hsl(25, 75%, 50%)" }
-    - { name: Students, value: 1.7, color: "hsl(245, 65%, 60%)" }
+    - { name: Data Engineering, value: 21.2, color: "hsl(215, 80%, 50%)" }
+    - { name: Students, value: 14.1, color: "hsl(180, 70%, 45%)" }
+    - { name: AI Engineering, value: 13.3, color: "hsl(150, 60%, 45%)" }
+    - { name: Analytics, value: 12.4, color: "hsl(280, 60%, 55%)" }
+    - { name: Software Engineering, value: 12.0, color: "hsl(340, 70%, 55%)" }
+    - { name: Data Science & ML, value: 11.2, color: "hsl(40, 80%, 55%)" }
+    - { name: Other, value: 6.0, color: "hsl(25, 75%, 50%)" }
+    - { name: Leadership, value: 4.0, color: "hsl(245, 65%, 60%)" }
+    - { name: Consulting, value: 2.7, color: "hsl(195, 75%, 50%)" }
+    - { name: Product, value: 1.7, color: "hsl(5, 70%, 55%)" }
+    - { name: Research & Education, value: 1.4, color: "hsl(90, 55%, 45%)" }
 
 - title: Geography
   legend: 4
@@ -25,15 +28,15 @@
 - title: Career Level
   legend: 4
   data:
-    - { name: Senior, value: 40.6, color: "hsl(215, 80%, 50%)" }
-    - { name: Entry-level, value: 35.6, color: "hsl(180, 70%, 45%)" }
-    - { name: Team Leads, value: 10.1, color: "hsl(150, 60%, 45%)" }
-    - { name: Middle-level, value: 3.0, color: "hsl(280, 60%, 55%)" }
-    - { name: Students & Interns, value: 3.0, color: "hsl(340, 70%, 55%)" }
-    - { name: Directors, value: 2.4, color: "hsl(40, 80%, 55%)" }
-    - { name: Freelancers & Entrepreneurs, value: 2.0, color: "hsl(25, 75%, 50%)" }
-    - { name: Other, value: 2.0, color: "hsl(245, 65%, 60%)" }
-    - { name: Executives, value: 1.3, color: "hsl(195, 75%, 50%)" }
+    - { name: Mid-level, value: 53.2, color: "hsl(215, 80%, 50%)" }
+    - { name: Students, value: 12.8, color: "hsl(180, 70%, 45%)" }
+    - { name: Senior, value: 8.4, color: "hsl(150, 60%, 45%)" }
+    - { name: Entry-level, value: 7.9, color: "hsl(280, 60%, 55%)" }
+    - { name: Other, value: 7.4, color: "hsl(340, 70%, 55%)" }
+    - { name: Management, value: 4.9, color: "hsl(40, 80%, 55%)" }
+    - { name: Leadership, value: 2.2, color: "hsl(25, 75%, 50%)" }
+    - { name: Consultants, value: 1.7, color: "hsl(245, 65%, 60%)" }
+    - { name: Founders, value: 1.5, color: "hsl(195, 75%, 50%)" }
 
 - title: Industry
   legend: 4

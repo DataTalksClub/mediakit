@@ -60,6 +60,65 @@
       });
     }
 
+    // ---- Audience analytics modal ----
+    var audienceModal = document.getElementById("audience-modal");
+    var audienceModalTitle = document.getElementById("audience-modal-title");
+    var audienceModalItems = document.getElementById("audience-modal-items");
+    var audienceModalClose = document.getElementById("audience-modal-close");
+    var audienceModalBackdrop = audienceModal && audienceModal.querySelector("[data-audience-modal-backdrop]");
+    var audienceModalPreviousFocus = null;
+    if (audienceModal && audienceModalTitle && audienceModalItems && Array.isArray(window.CHART_DATA)) {
+      var closeAudienceModal = function () {
+        audienceModal.classList.add("hidden");
+        audienceModal.classList.remove("flex");
+        document.body.style.overflow = "";
+        if (audienceModalPreviousFocus) audienceModalPreviousFocus.focus();
+      };
+      document.querySelectorAll("[data-audience-modal-open]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var idx = parseInt(button.getAttribute("data-chart-index"), 10);
+          var chart = window.CHART_DATA[idx];
+          if (!chart) return;
+
+          audienceModalTitle.textContent = chart.title;
+          audienceModalItems.textContent = "";
+          chart.data.forEach(function (item) {
+            var row = document.createElement("div");
+            row.className = "flex items-center justify-between gap-3 rounded-xl bg-secondary/70 px-3 py-2.5";
+
+            var label = document.createElement("div");
+            label.className = "flex items-center gap-2 min-w-0";
+            var marker = document.createElement("span");
+            marker.className = "w-2.5 h-2.5 rounded-full flex-shrink-0";
+            marker.style.backgroundColor = item.color;
+            var name = document.createElement("span");
+            name.className = "text-sm text-muted-foreground";
+            name.textContent = item.name;
+            label.appendChild(marker);
+            label.appendChild(name);
+
+            var value = document.createElement("span");
+            value.className = "text-sm font-semibold text-foreground flex-shrink-0";
+            value.textContent = Number(item.value).toFixed(1) + "%";
+            row.appendChild(label);
+            row.appendChild(value);
+            audienceModalItems.appendChild(row);
+          });
+
+          audienceModalPreviousFocus = button;
+          audienceModal.classList.remove("hidden");
+          audienceModal.classList.add("flex");
+          document.body.style.overflow = "hidden";
+          if (audienceModalClose) audienceModalClose.focus();
+        });
+      });
+      if (audienceModalClose) audienceModalClose.addEventListener("click", closeAudienceModal);
+      if (audienceModalBackdrop) audienceModalBackdrop.addEventListener("click", closeAudienceModal);
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !audienceModal.classList.contains("hidden")) closeAudienceModal();
+      });
+    }
+
     // ---- Testimonial "Read more" (clamped cards) ----
     var tCards = document.querySelectorAll("[data-testimonial-card]");
     var revealReadMore = function () {

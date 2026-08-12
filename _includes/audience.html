@@ -27,17 +27,13 @@
           </div>
           {% endfor %}
         </div>
-        <details class="mt-4 pt-3 border-t border-border/60 text-xs">
-          <summary class="font-semibold text-brand-blue cursor-pointer text-center">View full breakdown</summary>
-          <div class="space-y-2 mt-3">
-            {% for item in chart.data %}
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-muted-foreground">{{ item.name }}</span>
-              <span class="text-foreground font-semibold">{{ item.value }}%</span>
-            </div>
-            {% endfor %}
-          </div>
-        </details>
+        <div class="mt-4 pt-3 border-t border-border/60 text-center">
+          <button type="button" data-audience-modal-open data-chart-index="{{ forloop.index0 }}"
+            class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:text-brand-blue-dark transition-colors">
+            View full analytics
+            <i data-lucide="expand" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
       </div>
       {% endfor %}
 
@@ -51,6 +47,22 @@
             {% endfor %}
           </div>
         </div>
+      </div>
+    </div>
+
+    <div id="audience-modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="audience-modal-title">
+      <div data-audience-modal-backdrop class="absolute inset-0 bg-brand-navy/70 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-xl max-h-[85vh] overflow-y-auto rounded-2xl bg-card border border-border shadow-2xl p-6 sm:p-8">
+        <button type="button" id="audience-modal-close" aria-label="Close audience analytics"
+          class="absolute top-4 right-4 w-9 h-9 rounded-full bg-secondary hover:bg-muted flex items-center justify-center transition-colors">
+          <i data-lucide="x" class="w-4 h-4 text-foreground"></i>
+        </button>
+        <div class="pr-10">
+          <span class="tag mb-3">Audience Analytics</span>
+          <h3 id="audience-modal-title" class="text-xl sm:text-2xl font-bold text-foreground"></h3>
+          <p class="text-sm text-muted-foreground mt-1">Complete percentage breakdown</p>
+        </div>
+        <div id="audience-modal-items" class="grid sm:grid-cols-2 gap-2 mt-6"></div>
       </div>
     </div>
 
