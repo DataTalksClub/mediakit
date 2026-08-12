@@ -37,9 +37,10 @@ newsletter:
 workshop:
   title: Stand-Alone Workshop
   price: "€5,000"
-  extra_price: "+€5,000 if done by Alexey"
+  extra_price: "+€5,000 if done by us"
   description: "We host a live, hands-on code-along on our YouTube channel to demonstrate your tool. This format suits complex, developer-focused products because participants see the product in a practical setting."
   features:
+    - We host and moderate the live session with your instructor
     - "Promotion across all channels: Luma, Slack, social media, website"
     - Collaborative planning aligned with community interests
     - Live YouTube stream on our main channel
@@ -78,7 +79,7 @@ in_person:
       icon: users
     - title: In-Person Workshop
       price: "€5,000"
-      extra_price: "+€5,000 if done by Alexey"
+      extra_price: "+€5,000 if done by us"
       description: "A hands-on session where participants learn a concrete skill, build something, and connect the lesson to your product or topic."
       features:
         - Practical topic and exercises built around a learning outcome
@@ -109,7 +110,7 @@ courses:
     example_label: See it in the course
   - title: Workshop
     price: "€10,000"
-    extra_price: "+€5,000 if done by Alexey"
+    extra_price: "+€5,000 if done by us"
     description: "A hands-on workshop inside a course module, teaching students to apply concepts using your product."
     features:
       - Logo placement on course page
@@ -128,7 +129,7 @@ courses:
     example_label: See the dlt workshop
   - title: Full Module
     price: "€20,000"
-    extra_price: "+€5,000 if done by Alexey"
+    extra_price: "+€5,000 if done by us"
     description: "Our deepest integration: your tool is used to teach a full module topic that students use throughout."
     features:
       - Logo + mention in the launch stream
