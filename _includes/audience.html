@@ -27,6 +27,17 @@
           </div>
           {% endfor %}
         </div>
+        <details class="mt-4 pt-3 border-t border-border/60 text-xs">
+          <summary class="font-semibold text-brand-blue cursor-pointer text-center">View full breakdown</summary>
+          <div class="space-y-2 mt-3">
+            {% for item in chart.data %}
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-muted-foreground">{{ item.name }}</span>
+              <span class="text-foreground font-semibold">{{ item.value }}%</span>
+            </div>
+            {% endfor %}
+          </div>
+        </details>
       </div>
       {% endfor %}
 
@@ -42,6 +53,27 @@
         </div>
       </div>
     </div>
+
+    <div class="mt-12">
+      <div class="max-w-2xl mx-auto text-center mb-8">
+        <h3 class="text-xl sm:text-2xl font-bold text-foreground mb-2">Why people join DataTalks.Club</h3>
+        <p class="text-muted-foreground">Members come to learn, meet peers, and move their careers forward.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        {% for reason in site.data.community.reasons %}
+        <div class="premium-card p-5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="{{ reason.icon }}" class="w-5 h-5 text-brand-blue"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-foreground mb-1">{{ reason.title }}</h4>
+            <p class="text-sm text-muted-foreground leading-relaxed">{{ reason.description }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
   </div>
 
   <script>

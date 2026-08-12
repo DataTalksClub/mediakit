@@ -1,0 +1,20 @@
+<section id="community-voices" class="py-16 lg:py-20 bg-secondary relative">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+
+  <div class="section-container">
+    <div class="max-w-2xl mx-auto text-center mb-10">
+      <span class="tag mb-4">Community Voices</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-3">What Community Members Say</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto items-start">
+      {% for quote in site.data.community.quotes %}
+      <figure class="premium-card p-5">
+        <i data-lucide="quote" class="w-5 h-5 text-brand-blue mb-3"></i>
+        <blockquote class="text-sm text-muted-foreground leading-relaxed">“{{ quote }}”</blockquote>
+        <figcaption class="text-xs font-semibold text-foreground mt-4">DataTalks.Club community member</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,7 +1,7 @@
 newsletter:
   - title: Secondary Slot
     price: "€1,000"
-    description: "Placed in the middle of the newsletter, a high-visibility slot perfect for events, webinars, and conferences."
+    description: "Placed in the Events section after the main announcement, a high-visibility slot for events, webinars, and conferences."
     features:
       - Positioned in the middle of the newsletter
       - Great for events, webinars, conferences & community initiatives
@@ -38,13 +38,13 @@ workshop:
   title: Stand-Alone Workshop
   price: "€5,000"
   extra_price: "+€5,000 if done by Alexey"
-  description: "Live, hands-on code-along sessions led by your speaker and streamed on our YouTube channel. The fastest way to demonstrate your tool in action."
+  description: "We host a live, hands-on code-along on our YouTube channel to demonstrate your tool. This format suits complex, developer-focused products because participants see the product in a practical setting."
   features:
     - "Promotion across all channels: Luma, Slack, social media, website"
     - Collaborative planning aligned with community interests
     - Live YouTube stream on our main channel
-    - "Lead collection: attendees who opt-in share contact details"
-    - "Recording reuse: the session remains on YouTube forever"
+    - "Lead collection through Luma: you receive contact details from attendees who opt in"
+    - "Recording reuse: the session stays on YouTube and you can repurpose it freely"
     - Optional dry run rehearsal before going live
   metrics:
     subscribers: "79.1K"
@@ -82,7 +82,7 @@ in_person:
       description: "A hands-on session where participants learn a concrete skill, build something, and connect the lesson to your product or topic."
       features:
         - Practical topic and exercises built around a learning outcome
-        - Alexey-led hands-on format with live guidance and Q&A
+        - Instructor-led hands-on format with live guidance and Q&A
         - Promotion through Meetup and community channels
         - Attendee communication and optional recording
       image: in-person-workshop.jpg
@@ -96,11 +96,12 @@ courses:
     extra_price: "&nbsp;"
     description: "Get your brand featured in one of our popular Zoomcamp courses, followed by thousands of learners worldwide."
     features:
-      - Logo placement on course page
+      - Logo placement on the course page throughout the cohort
       - Mention in course launch stream
       - Encouragement for students to try your product
       - "Optional demo video (up to 10 min, open-source only)"
       - Shout-out from the official Telegram channel
+      - Post-launch analytics on course reach and video performance
     metrics:
       - { value: "5K-10K", label: views }
     image: course-mention.png
@@ -115,7 +116,10 @@ courses:
       - Mention in course launch stream
       - Live-streamed workshop, part of the course curriculum
       - "Dedicated homework assignment (3 questions)"
+      - Encouragement for students to use your tool in their projects
       - Optional raffle/giveaway for participants
+      - Permanent availability on GitHub and YouTube
+      - Post-event analytics on views and engagement
     metrics:
       - { value: "5K-10K", label: views }
     image: course-workshop.png
@@ -132,6 +136,7 @@ courses:
       - "Homework assignment (6-7 questions) based on your product"
       - Office hours with the course participants
       - Evergreen visibility on GitHub and YouTube
+      - Post-launch analytics on module reach and engagement
       - For open-source tools only
     metrics:
       - { value: "10K-50K", label: total views }
@@ -171,22 +176,23 @@ guest_post:
 
 why_sponsor_courses:
   - title: High-intent adoption
-    description: Learners follow step-by-step labs with your product
+    description: Learners finish the labs with your product installed and configured
     icon: target
   - title: Scale
     description: 10K-20K registered learners per cohort
     icon: trending-up
   - title: Social proof
-    description: Learners share what they build on social media
+    description: Learners share their projects and product screenshots publicly
     icon: globe
   - title: Evergreen
-    description: Content lives forever on GitHub & YouTube
+    description: Lessons stay discoverable on GitHub and YouTube after each cohort
     icon: sparkles
 
 social:
   title: Alexey's Personal Social Media
   price: "€1,200"
-  description: "Promote your content with authentic, personal recommendations from Alexey Grigorev — shared on both his LinkedIn and X."
+  price_note: LinkedIn + X included
+  description: "The €1,200 package includes promotion on both Alexey Grigorev's LinkedIn and X accounts."
   options:
     - Videos about a product/event
     - Posts with custom media and recommendations
