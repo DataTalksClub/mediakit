@@ -315,6 +315,23 @@
       </p>
     </div>
 
+    <!-- Speaking at Your Event -->
+    <div class="mb-16 scroll-mt-24" id="speaking">
+      {% assign sp = p.speaking %}
+      {% include section-header.html icon="presentation" title="Alexey Speaks at Your Event" subtitle=sp.subtitle %}
+
+      <div class="grid md:grid-cols-2 gap-5">
+        {% for pkg in sp.packages %}{% include package-card.html pkg=pkg %}{% endfor %}
+      </div>
+
+      <div class="rounded-xl border border-brand-blue/20 bg-brand-blue/[0.04] p-4 mt-5 flex items-start gap-3">
+        <i data-lucide="info" class="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5"></i>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          {{ sp.note }}
+        </p>
+      </div>
+    </div>
+
     <!-- Social -->
     <div class="mb-16 scroll-mt-24" id="social">
       {% include section-header.html icon="megaphone" title="Alexey's Social Media" subtitle="Personal recommendations from the founder" %}

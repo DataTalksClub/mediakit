@@ -189,6 +189,32 @@ why_sponsor_courses:
     description: Lessons stay discoverable on GitHub and YouTube after each cohort
     icon: sparkles
 
+speaking:
+  subtitle: "Bring Alexey to speak at your webinar, meetup, or conference"
+  note: "Book Alexey for your event (€2,000) and add the Newsletter Primary Slot (€1,500) to promote the talk to 120K+ subscribers for €3,000 total instead of €3,500 (€500 off)."
+  packages:
+    - title: Talk at Your Event
+      price: "€2,000"
+      extra_price: "Webinar, meetup, or conference"
+      description: "Alexey gives a practical talk at your own webinar, meetup, or conference on a topic tailored to your audience."
+      features:
+        - Practical talk on data, ML, AI, or developer tools relevant to your audience
+        - Topic and outline planned together with your team
+        - Available for online webinars, community meetups, and conferences
+        - Live Q&A session and discussion with attendees
+    - title: Talk + Newsletter Primary Slot
+      price: "€3,000"
+      extra_price: "€500 off (€3,500 value)"
+      description: "Combine Alexey's talk at your event with our Primary Slot at the top of the weekly newsletter to promote registrations."
+      features:
+        - Guest talk by Alexey at your webinar, meetup, or conference (€2,000)
+        - Primary Slot at the very top of our weekly newsletter (€1,500)
+        - Featured to 120K+ data engineers, ML engineers, and AI practitioners
+        - Post-send analytics report (opens, clicks, CTR)
+      metrics:
+        - { value: "700-1,500", label: expected clicks }
+        - { value: "€500", label: bundle discount }
+
 social:
   title: Alexey's Personal Social Media
   price: "€1,200"

@@ -9,6 +9,7 @@
     - { label: Podcast, href: "#podcast" }
     - { label: Guest Post, href: "#guest-post" }
     - { label: In-Person Events, href: "#in-person-events" }
+    - { label: Speaking, href: "#speaking" }
     - { label: Social Media, href: "#social" }
 - label: Partners
   href: "#sponsors"
