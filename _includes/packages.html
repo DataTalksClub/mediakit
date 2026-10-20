@@ -332,6 +332,14 @@
       </div>
     </div>
 
+    <!-- Video and Substack Article -->
+    <div class="mb-16 scroll-mt-24" id="video-article">
+      {% include section-header.html icon="video" title="Video & Substack Article" subtitle="Product stories recorded and written by Alexey" %}
+      <div class="grid md:grid-cols-2 gap-5">
+        {% for pkg in p.video_article %}{% include package-card.html pkg=pkg %}{% endfor %}
+      </div>
+    </div>
+
     <!-- Social -->
     <div class="mb-16 scroll-mt-24" id="social">
       {% include section-header.html icon="megaphone" title="Alexey's Social Media" subtitle="Personal recommendations from the founder" %}

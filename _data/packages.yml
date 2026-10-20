@@ -215,6 +215,29 @@ speaking:
         - { value: "700-1,500", label: expected clicks }
         - { value: "€500", label: bundle discount }
 
+video_article:
+  - title: Product Video
+    price: "€1,200"
+    extra_price: "X + LinkedIn included"
+    description: "Alexey records a short video about your product and shares it on his personal X and LinkedIn accounts."
+    features:
+      - Short product video recorded by Alexey
+      - Shared on both X and LinkedIn
+    image: product-video.jpg
+    example_url: https://www.youtube.com/watch?v=uBpXLrpc3IY
+    example_label: Watch the Kubernetes video
+  - title: Video + Substack Article
+    price: "€2,000"
+    extra_price: "Video and article together"
+    description: "Alexey records and shares your product video on X and LinkedIn, then turns it into an article on his Substack, Alexey On Data."
+    features:
+      - Everything in the Product Video package
+      - Video turned into a Substack article by Alexey
+      - Published on Alexey On Data
+    image: substack-kubernetes.png
+    example_url: https://aishippingblog.com/p/ai-agents-can-do-everything-now-do
+    example_label: Read the Kubernetes article
+
 social:
   title: Alexey's Personal Social Media
   price: "€1,200"
