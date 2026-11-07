@@ -48,7 +48,7 @@ workshop:
     - "Recording reuse: the session stays on YouTube and you can repurpose it freely"
     - Optional dry run rehearsal before going live
   metrics:
-    subscribers: "79.1K"
+    subscribers: "85.3K"
     avg_views: "2,000-7,000"
     live: "100"
   example:
@@ -61,7 +61,7 @@ in_person:
   intro: "Co-hosted Berlin events for data, ML, and AI practitioners who want to learn, meet peers, and talk with builders in person."
   contact_note: "For meetup pricing, venue scope, recording, and event details, reach out to Alexey."
   stats:
-    - { value: "~9,000", label: "Berlin Meetup members" }
+    - { value: "~11,000", label: "Berlin Meetup members" }
     - { value: "100+", label: "people attend in person" }
   packages:
     - title: Co-Hosted Meetup
@@ -191,7 +191,7 @@ why_sponsor_courses:
 
 speaking:
   subtitle: "Bring Alexey to speak at your webinar, meetup, or conference"
-  note: "Book Alexey for your event (€2,000) and add the Newsletter Primary Slot (€1,500) to promote the talk to 120K+ subscribers for €3,000 total instead of €3,500 (€500 off)."
+  note: "Book Alexey for your event (€2,000) and add the Newsletter Primary Slot (€1,500) to promote the talk to 130K+ subscribers for €3,000 total instead of €3,500 (€500 off)."
   packages:
     - title: Talk at Your Event
       price: "€2,000"
@@ -209,7 +209,7 @@ speaking:
       features:
         - Guest talk by Alexey at your webinar, meetup, or conference (€2,000)
         - Primary Slot at the very top of our weekly newsletter (€1,500)
-        - Featured to 120K+ data engineers, ML engineers, and AI practitioners
+        - Featured to 130K+ data engineers, ML engineers, and AI practitioners
         - Post-send analytics report (opens, clicks, CTR)
       metrics:
         - { value: "700-1,500", label: expected clicks }
@@ -256,7 +256,7 @@ social:
       profile_url: "https://www.linkedin.com/in/agrigorev/"
       post_url: "https://www.linkedin.com/posts/agrigorev_testing-is-hard-end-to-end-testing-with-activity-7422925840914726912-dIXr/"
     - name: X
-      followers: "29K"
+      followers: "30K"
       impressions: "2K-10K"
       image: alexey-twitter.png
       profile_url: "https://x.com/Al_Grigor"
