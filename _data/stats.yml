@@ -1,16 +1,16 @@
 - icon: users
-  value: "95K"
+  value: "100K+"
   label: Slack Members
   color: "hsl(215, 80%, 50%)"
 - icon: mail
-  value: "120K+"
+  value: "130K+"
   label: Newsletter Subscribers
   color: "hsl(180, 70%, 45%)"
 - icon: youtube
-  value: "79.1K"
+  value: "85.3K"
   label: YouTube Subscribers
   color: "hsl(340, 70%, 55%)"
 - icon: message-square
-  value: "42K"
+  value: "44K"
   label: Social Followers
   color: "hsl(280, 60%, 55%)"
