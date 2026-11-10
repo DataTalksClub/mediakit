@@ -1,0 +1,255 @@
+# Every sponsorship format, once. `_data/goals.yml` decides which of these a
+# sponsor sees for the goal they picked; the "Show me everything" view lists
+# them all, grouped by `channel`.
+#
+#   key      stable id, referenced from goals.yml
+#   channel  group heading in the full list
+#   summary  one line: what the sponsor gets
+#   reach    the single number that matters for this format
+#   price    shown as-is; omit it for "contact us" formats
+#   note     pricing or eligibility caveat, shown next to the details
+
+- key: newsletter-secondary
+  channel: Newsletter
+  title: Newsletter, Secondary Slot
+  price: "€1,000"
+  summary: A slot in the Events section of the weekly newsletter. Good for webinars, events, and conferences.
+  reach: { value: "250-300", label: clicks }
+  features:
+    - Positioned in the middle of the newsletter
+    - Great for events, webinars, conferences & community initiatives
+    - Content template we refine together
+    - Analytics report after the send (opens, clicks, CTR)
+  image: newsletter-secondary.png
+  example_url: https://us19.campaign-archive.com/?u=0d7822ab98152f5afc118c176&id=482b851777
+  example_label: Open the live newsletter
+
+- key: newsletter-primary
+  channel: Newsletter
+  title: Newsletter, Primary Slot
+  price: "€1,500"
+  summary: The top of the weekly newsletter, sent every Monday to 130K+ subscribers.
+  reach: { value: "700-1,500", label: clicks }
+  features:
+    - Featured at the very top, our most visible placement
+    - Best for major launches, courses, e-books & guides
+    - Content template we refine together
+    - Analytics report after the send (opens, clicks, CTR)
+  image: newsletter-primary.png
+  example_url: https://us19.campaign-archive.com/?u=0d7822ab98152f5afc118c176&id=7cbf64d3d0
+  example_label: Open the live newsletter
+
+- key: newsletter-standalone
+  channel: Newsletter
+  title: Stand-Alone Newsletter
+  price: "€2,500"
+  summary: A dedicated email to the whole list with only your content.
+  reach: { value: "700-2,000", label: clicks }
+  features:
+    - A dedicated send with no other sponsors and no other content
+    - Full control over the send date and time
+    - Content template we refine together
+    - Analytics report after the send (opens, clicks, CTR)
+  image: newsletter-standalone.png
+  example_url: https://us19.campaign-archive.com/?u=0d7822ab98152f5afc118c176&id=314cda7d4b
+  example_label: Open the live newsletter
+
+- key: social
+  channel: Alexey's channels
+  title: Post on Alexey's LinkedIn and X
+  price: "€1,200"
+  summary: A personal recommendation from the founder on both accounts.
+  reach: { value: "10K-45K", label: LinkedIn impressions per post }
+  note: "LinkedIn (70K+ followers) and X (30K followers, 2K-10K impressions per post) are both included."
+  features:
+    - Videos about a product or event
+    - Posts with custom media and recommendations
+    - Giveaways
+    - Custom ideas welcome
+  image: alexey-linkedin.png
+  example_url: "https://www.linkedin.com/posts/agrigorev_testing-is-hard-end-to-end-testing-with-activity-7422925840914726912-dIXr/"
+  example_label: See an example post
+
+- key: product-video
+  channel: Alexey's channels
+  title: Product Video
+  price: "€1,200"
+  summary: Alexey records a short video about your product and shares it on X and LinkedIn.
+  features:
+    - Short product video recorded by Alexey
+    - Shared on both X and LinkedIn
+  image: product-video.jpg
+  example_url: https://www.youtube.com/watch?v=uBpXLrpc3IY
+  example_label: Watch the Kubernetes video
+
+- key: video-article
+  channel: Alexey's channels
+  title: Product Video + Substack Article
+  price: "€2,000"
+  summary: The product video, plus an article about it on Alexey's Substack.
+  features:
+    - Everything in the Product Video package
+    - Video turned into a Substack article by Alexey
+    - Published on Alexey On Data
+  image: substack-kubernetes.png
+  example_url: https://aishippingblog.com/p/ai-agents-can-do-everything-now-do
+  example_label: Read the Kubernetes article
+
+- key: talk
+  channel: Alexey's channels
+  title: Alexey Speaks at Your Event
+  price: "€2,000"
+  summary: A practical talk by Alexey at your webinar, meetup, or conference.
+  features:
+    - Practical talk on data, ML, AI, or developer tools relevant to your audience
+    - Topic and outline planned together with your team
+    - Available for online webinars, community meetups, and conferences
+    - Live Q&A session and discussion with attendees
+
+- key: talk-newsletter
+  channel: Alexey's channels
+  title: Talk + Newsletter Primary Slot
+  price: "€3,000"
+  summary: Alexey speaks at your event and the newsletter's top slot promotes registrations.
+  reach: { value: "700-1,500", label: expected clicks }
+  note: "€500 off the two bought separately (€3,500)."
+  features:
+    - Guest talk by Alexey at your webinar, meetup, or conference (€2,000)
+    - Primary Slot at the very top of our weekly newsletter (€1,500)
+    - Featured to 130K+ data engineers, ML engineers, and AI practitioners
+    - Post-send analytics report (opens, clicks, CTR)
+
+- key: workshop
+  channel: Workshops and events
+  title: Live Workshop
+  price: "€5,000"
+  summary: A live, hands-on code-along with your tool on our YouTube channel.
+  reach: { value: "2,000-7,000", label: views per workshop }
+  note: "€5,000 when your team prepares the materials and provides the instructor. €10,000 when Alexey learns your tool, prepares the materials, and leads the session. About 100 people join live."
+  features:
+    - We host and moderate the live session with your instructor
+    - "Promotion across all channels: Luma, Slack, social media, website"
+    - Collaborative planning aligned with community interests
+    - Live YouTube stream on our main channel
+    - "Lead collection through Luma: you receive contact details from attendees who opt in"
+    - "Recording reuse: the session stays on YouTube and you can repurpose it freely"
+    - Optional dry run rehearsal before going live
+  image: workshop-community.png
+  example_url: https://www.youtube.com/playlist?list=PL3MmuxUbc_hKXoe5VllAqUa0nTp0k9Mbl
+  example_label: Previous workshops playlist
+
+- key: in-person-workshop
+  channel: Workshops and events
+  title: In-Person Workshop (Berlin)
+  price: "€5,000"
+  summary: A hands-on session in Berlin where participants build something with your product.
+  reach: { value: "100+", label: people attend in person }
+  note: "+€5,000 if we prepare and lead it."
+  features:
+    - Practical topic and exercises built around a learning outcome
+    - Instructor-led hands-on format with live guidance and Q&A
+    - Promotion through Meetup and community channels
+    - Attendee communication and optional recording
+  image: in-person-workshop.jpg
+  example_url: https://www.meetup.com/berlin-datatalks-club/events/313061198/
+  example_label: See the Exasol workshop
+
+- key: meetup
+  channel: Workshops and events
+  title: Co-Hosted Meetup (Berlin)
+  summary: An in-person evening with talks, Q&A, and networking, organized with your team.
+  reach: { value: "~11,000", label: Berlin Meetup members }
+  note: "Pricing depends on venue, scope, and recording. Ask Alexey."
+  features:
+    - Agenda, speakers, panel/Q&A, and networking format
+    - Promotion through Meetup and community channels
+    - Registration, attendee communication, and check-in support
+    - Optional sponsor table, swag, or community giveaway
+  image: meetup-in-person.jpg
+  example_url: https://www.meetup.com/berlin-datatalks-club/events/314179341/
+  example_label: See the Zalando meetup
+
+- key: course-mention
+  channel: Zoomcamp courses
+  title: Course Mention
+  price: "€5,000"
+  summary: Your logo on the course page for a whole cohort, plus a mention in the launch stream.
+  reach: { value: "5K-10K", label: views }
+  features:
+    - Logo placement on the course page throughout the cohort
+    - Mention in course launch stream
+    - Encouragement for students to try your product
+    - "Optional demo video (up to 10 min, open-source only)"
+    - Shout-out from the official Telegram channel
+    - Post-launch analytics on course reach and video performance
+  image: course-mention.png
+  example_url: https://github.com/DataTalksClub/machine-learning-zoomcamp/blob/e787517e9c9555fc873d1be262193bfaecc0d9d2/08-deep-learning/01b-saturn-cloud.md
+  example_label: See it in the course
+
+- key: course-workshop
+  channel: Zoomcamp courses
+  title: Course Workshop
+  price: "€10,000"
+  summary: A workshop inside a course, with homework. Students apply the concepts using your product.
+  reach: { value: "5K-10K", label: views }
+  note: "Your team creates the materials and records the videos. +€5,000 if Alexey does both."
+  features:
+    - Logo placement on course page
+    - Mention in course launch stream
+    - Live-streamed workshop, part of the course curriculum
+    - "Dedicated homework assignment (3 questions)"
+    - Encouragement for students to use your tool in their projects
+    - Optional raffle/giveaway for participants
+    - Permanent availability on GitHub and YouTube
+    - Post-event analytics on views and engagement
+  image: course-workshop.png
+  example_url: https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/cohorts/2024/workshops/dlt.md
+  example_label: See the dlt workshop
+
+- key: course-module
+  channel: Zoomcamp courses
+  title: Full Course Module
+  price: "€20,000"
+  summary: Your tool teaches a whole module, and students keep using it for the rest of the course.
+  reach: { value: "10K-50K", label: total views }
+  note: "For open-source tools only. Your team creates the materials and records the videos. +€5,000 if Alexey does both."
+  features:
+    - Logo + mention in the launch stream
+    - "Full module (5-10 lessons) featuring your tool"
+    - "Homework assignment (6-7 questions) based on your product"
+    - Office hours with the course participants
+    - Evergreen visibility on GitHub and YouTube
+    - Post-launch analytics on module reach and engagement
+  image: course-module.png
+  example_url: https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/cohorts/2024/02-workflow-orchestration
+  example_label: See the module
+
+- key: podcast
+  channel: Podcast and blog
+  title: Podcast Episode
+  price: "€1,500"
+  summary: A focused conversation with Alexey, published on YouTube and podcast platforms.
+  reach: { value: "1,000+", label: listens per episode }
+  features:
+    - Topic planning aligned with community interests
+    - Published on YouTube and podcast platforms
+    - Promotion through our newsletter and social channels
+    - Evergreen episode page with sponsor link
+  image: podcast.jpg
+  example_url: https://datatalks.club/podcast/building-production-search-systems.html
+  example_label: Listen to an example episode
+
+- key: guest-post
+  channel: Podcast and blog
+  title: Guest Post
+  price: "€1,500"
+  summary: A practical article on the DataTalks.Club blog that stays discoverable.
+  reach: { value: "60K-100K", label: monthly website visits }
+  features:
+    - Editorial planning and topic review
+    - Published on the DataTalks.Club blog
+    - Promotion through our newsletter and social channels
+    - Evergreen article page with sponsor link
+  image: guest-post.jpg
+  example_url: https://datatalks.club/blog/open-source-free-ai-agent-evaluation-tools.html
+  example_label: Read an example guest post

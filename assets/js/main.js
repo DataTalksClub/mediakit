@@ -60,65 +60,6 @@
       });
     }
 
-    // ---- Audience analytics modal ----
-    var audienceModal = document.getElementById("audience-modal");
-    var audienceModalTitle = document.getElementById("audience-modal-title");
-    var audienceModalItems = document.getElementById("audience-modal-items");
-    var audienceModalClose = document.getElementById("audience-modal-close");
-    var audienceModalBackdrop = audienceModal && audienceModal.querySelector("[data-audience-modal-backdrop]");
-    var audienceModalPreviousFocus = null;
-    if (audienceModal && audienceModalTitle && audienceModalItems && Array.isArray(window.CHART_DATA)) {
-      var closeAudienceModal = function () {
-        audienceModal.classList.add("hidden");
-        audienceModal.classList.remove("flex");
-        document.body.style.overflow = "";
-        if (audienceModalPreviousFocus) audienceModalPreviousFocus.focus();
-      };
-      document.querySelectorAll("[data-audience-modal-open]").forEach(function (button) {
-        button.addEventListener("click", function () {
-          var idx = parseInt(button.getAttribute("data-chart-index"), 10);
-          var chart = window.CHART_DATA[idx];
-          if (!chart) return;
-
-          audienceModalTitle.textContent = chart.title;
-          audienceModalItems.textContent = "";
-          chart.data.forEach(function (item) {
-            var row = document.createElement("div");
-            row.className = "flex items-center justify-between gap-3 rounded-xl bg-secondary/70 px-3 py-2.5";
-
-            var label = document.createElement("div");
-            label.className = "flex items-center gap-2 min-w-0";
-            var marker = document.createElement("span");
-            marker.className = "w-2.5 h-2.5 rounded-full flex-shrink-0";
-            marker.style.backgroundColor = item.color;
-            var name = document.createElement("span");
-            name.className = "text-sm text-muted-foreground";
-            name.textContent = item.name;
-            label.appendChild(marker);
-            label.appendChild(name);
-
-            var value = document.createElement("span");
-            value.className = "text-sm font-semibold text-foreground flex-shrink-0";
-            value.textContent = Number(item.value).toFixed(1) + "%";
-            row.appendChild(label);
-            row.appendChild(value);
-            audienceModalItems.appendChild(row);
-          });
-
-          audienceModalPreviousFocus = button;
-          audienceModal.classList.remove("hidden");
-          audienceModal.classList.add("flex");
-          document.body.style.overflow = "hidden";
-          if (audienceModalClose) audienceModalClose.focus();
-        });
-      });
-      if (audienceModalClose) audienceModalClose.addEventListener("click", closeAudienceModal);
-      if (audienceModalBackdrop) audienceModalBackdrop.addEventListener("click", closeAudienceModal);
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && !audienceModal.classList.contains("hidden")) closeAudienceModal();
-      });
-    }
-
     // ---- Testimonial "Read more" (clamped cards) ----
     var tCards = document.querySelectorAll("[data-testimonial-card]");
     var revealReadMore = function () {
@@ -152,38 +93,50 @@
     revealReadMore();
     window.addEventListener("load", revealReadMore);
 
-    // ---- Audience donut charts ----
-    if (window.Chart && Array.isArray(window.CHART_DATA)) {
-      Chart.defaults.font.family = "Inter, sans-serif";
-      document.querySelectorAll("canvas.js-donut").forEach(function (canvas) {
-        var idx = parseInt(canvas.getAttribute("data-chart-index"), 10);
-        var chart = window.CHART_DATA[idx];
-        if (!chart) return;
-        new Chart(canvas, {
-          type: "doughnut",
-          data: {
-            labels: chart.data.map(function (d) { return d.name; }),
-            datasets: [{
-              data: chart.data.map(function (d) { return d.value; }),
-              backgroundColor: chart.data.map(function (d) { return d.color; }),
-              borderWidth: 0,
-              spacing: 3,
-            }],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            cutout: "62%",
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  label: function (ctx) { return ctx.label + ": " + ctx.parsed + "%"; },
-                },
-              },
-            },
-          },
-        });
+    // ---- Goal picker ----
+    // The sponsor picks what they want; only the matching formats are shown.
+    // The choice lives in the URL hash (#goal-trial) so a link to one goal can
+    // be shared.
+    var goalButtons = document.querySelectorAll("[data-goal]");
+    var goalPanels = document.querySelectorAll("[data-goal-panel]");
+    var goalEmpty = document.getElementById("goal-empty");
+    var goalFromHash = function () {
+      var match = /^#goal-([a-z-]+)$/.exec(window.location.hash);
+      if (!match) return null;
+      return document.querySelector('[data-goal-panel="' + match[1] + '"]') ? match[1] : null;
+    };
+    var selectGoal = function (key, scroll) {
+      var active = null;
+      goalPanels.forEach(function (panel) {
+        var on = panel.getAttribute("data-goal-panel") === key;
+        panel.classList.toggle("is-active", on);
+        if (on) active = panel;
+      });
+      goalButtons.forEach(function (button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-goal") === key ? "true" : "false");
+      });
+      if (goalEmpty) goalEmpty.classList.toggle("is-hidden", !!active);
+      if (active && scroll) {
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        active.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      }
+      revealReadMore();
+    };
+    goalButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var key = button.getAttribute("data-goal");
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", "#goal-" + key);
+        }
+        selectGoal(key, true);
+      });
+    });
+    if (goalPanels.length) {
+      var initialGoal = goalFromHash();
+      if (initialGoal) selectGoal(initialGoal, true);
+      window.addEventListener("hashchange", function () {
+        var key = goalFromHash();
+        if (key) selectGoal(key, true);
       });
     }
   });

@@ -1,0 +1,62 @@
+{%- comment -%}
+One sponsorship format as a collapsible row: the closed row is enough to
+compare formats (what it is, reach, price); opening it shows what is included
+and a real example.
+Params: opt (entry from _data/options.yml), best (optional), open (optional).
+{%- endcomment -%}
+{% assign opt = include.opt %}
+<details class="option-row premium-card"{% if include.open %} open{% endif %}>
+  <summary class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 p-5 cursor-pointer">
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2 flex-wrap">
+        <h4 class="font-semibold text-foreground text-lg">{{ opt.title }}</h4>
+        {% if include.best %}<span class="tag">Best fit</span>{% endif %}
+      </div>
+      <p class="text-sm text-muted-foreground leading-relaxed mt-1">{{ opt.summary }}</p>
+      {% if opt.reach %}
+      <div class="flex items-baseline gap-1.5 mt-2">
+        <span class="text-base font-bold text-brand-blue">{{ opt.reach.value }}</span>
+        <span class="text-xs text-muted-foreground">{{ opt.reach.label }}</span>
+      </div>
+      {% endif %}
+    </div>
+    <div class="flex items-center justify-between sm:justify-end gap-4 flex-shrink-0">
+      {% if opt.price %}
+      <div class="price-badge">{{ opt.price }}</div>
+      {% else %}
+      <div class="tag-outline !text-sm !px-4 !py-2">On request</div>
+      {% endif %}
+      <span class="option-row-toggle inline-flex items-center gap-1 text-xs font-semibold text-brand-blue whitespace-nowrap">
+        <span class="option-row-closed">Details</span><span class="option-row-opened">Hide</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 option-row-chevron"></i>
+      </span>
+    </div>
+  </summary>
+
+  <div class="px-5 pb-5 pt-5 border-t border-border/60 grid md:grid-cols-2 gap-6">
+    <div>
+      <h5 class="text-xs font-semibold text-foreground uppercase tracking-wider mb-2">What's included</h5>
+      <div class="space-y-0.5">
+        {% for feature in opt.features %}
+        <div class="feature-item">{{ feature }}</div>
+        {% endfor %}
+      </div>
+      {% if opt.note %}
+      <p class="text-sm text-muted-foreground leading-relaxed mt-4 rounded-xl border border-brand-blue/20 bg-brand-blue/[0.04] p-3">{{ opt.note }}</p>
+      {% endif %}
+    </div>
+    <div>
+      {% if opt.image %}
+      <h5 class="text-xs font-semibold text-foreground uppercase tracking-wider mb-2">What it looks like</h5>
+      {% include zoom-image.html image=opt.image alt=opt.title height="h-40" %}
+      {% endif %}
+      {% if opt.example_url %}
+      <a href="{{ opt.example_url }}" target="_blank" rel="noopener noreferrer"
+        class="mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-brand-blue hover:text-brand-blue-dark transition-colors">
+        {{ opt.example_label | default: "View example" }}
+        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</details>

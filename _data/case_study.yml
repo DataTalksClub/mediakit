@@ -1,0 +1,43 @@
+# Proof numbers from the Data Engineering Zoomcamp case studies.
+#
+# The case studies are still being built, so most values are not known yet.
+# Leave `value` empty for anything that is not final: the page then renders a
+# clearly marked placeholder instead of a number. Fill a value in only once the
+# case-study report has been reviewed.
+#
+# Rules for this file:
+#   - Aggregates only. No student names, emails, profile links, or employers
+#     tied to a person.
+#   - No per-tool usage numbers (for example how many projects used Airflow).
+#     Those are internal and do not go into sponsor-facing copy.
+
+course: Data Engineering Zoomcamp
+status: "Case study in progress. Figures marked as pending are placeholders, not results."
+
+funnel:
+  - label: Enrollments
+    detail: Learners registered for the cohort
+    value:
+  - label: Module homework completions
+    detail: Learners who submitted homework for a sponsored module
+    value:
+  - label: Final projects
+    detail: End-to-end projects submitted and peer-reviewed
+    value:
+
+profile:
+  - label: Seniority
+    detail: Share of learners at mid-level and above
+    value:
+  - label: Roles
+    detail: Top job functions among learners
+    value:
+  - label: Companies
+    detail: Number of distinct employers represented
+    value:
+  - label: Freelancers
+    detail: Share of learners working independently
+    value:
+  - label: Students employed next year
+    detail: Current students expected to be in a data role within 12 months
+    value:

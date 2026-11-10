@@ -1,94 +1,51 @@
-<section id="audience" class="py-16 lg:py-20 bg-secondary relative">
+<section id="audience" class="py-14 lg:py-20 bg-secondary relative scroll-mt-16">
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
 
   <div class="section-container">
-    <div class="max-w-2xl mx-auto text-center mb-12">
-      <span class="tag mb-4">Community Insights</span>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 tracking-tight">Audience Snapshot</h2>
-      <p class="text-muted-foreground text-lg leading-relaxed">
-        Highly engaged data professionals from around the world, across diverse roles, industries, and experience levels.
-      </p>
+    <div class="max-w-2xl mx-auto text-center mb-10">
+      <span class="tag mb-4">Audience</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-3 tracking-tight">Who you reach</h2>
+      <p class="text-muted-foreground">Working data and AI practitioners around the world. The largest group in each breakdown:</p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
       {% for chart in site.data.charts %}
-      <div class="premium-card p-6">
-        <h3 class="text-base font-semibold text-foreground mb-1">{{ chart.title }}</h3>
-        <p class="text-xs text-muted-foreground mb-4">Distribution breakdown</p>
-        <div class="h-44 flex items-center justify-center">
-          <canvas id="chart-{{ forloop.index }}" class="js-donut" data-chart-index="{{ forloop.index0 }}"></canvas>
-        </div>
-        <div class="{% if chart.legend_columns == 3 %}grid grid-cols-3 gap-x-2 gap-y-2{% else %}flex flex-wrap justify-center gap-x-4 gap-y-2{% endif %} mt-4">
-          {% for item in chart.data limit: chart.legend %}
-          <div class="flex items-center {% if chart.legend_columns == 3 %}justify-center gap-1.5 text-[11px] whitespace-nowrap{% else %}gap-2 text-xs{% endif %}">
-            <div class="{% if chart.legend_columns == 3 %}w-2 h-2{% else %}w-2.5 h-2.5{% endif %} rounded-full shadow-sm flex-shrink-0" style="background-color: {{ item.color }};"></div>
-            <span class="text-muted-foreground font-medium">{{ item.name }}</span>
-            <span class="text-foreground font-semibold">{{ item.value }}%</span>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="mt-4 pt-3 border-t border-border/60 text-center">
-          <button type="button" data-audience-modal-open data-chart-index="{{ forloop.index0 }}"
-            class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:text-brand-blue-dark transition-colors">
-            View full analytics
-            <i data-lucide="expand" class="w-3.5 h-3.5"></i>
-          </button>
-        </div>
+      {% assign top = chart.data | first %}
+      <div class="premium-card p-4 sm:p-5{% if forloop.last %} col-span-2 lg:col-span-1{% endif %}">
+        <div class="text-xs text-muted-foreground font-medium">{{ chart.title }}</div>
+        <div class="text-2xl font-bold text-brand-blue font-display mt-1">{{ top.value }}%</div>
+        <div class="text-sm font-semibold text-foreground">{{ top.name }}</div>
       </div>
       {% endfor %}
+    </div>
 
-      <div class="premium-card p-4 sm:p-6 flex flex-col overflow-hidden">
-        <h3 class="text-base font-semibold text-foreground mb-1">Topics of Interest</h3>
-        <p class="text-xs text-muted-foreground mb-4">What our community cares about</p>
-        <div class="flex-1 flex items-center justify-center overflow-visible">
-          <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-center items-center">
-            {% for t in site.data.topics %}
-            <span class="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 cursor-default whitespace-nowrap bg-brand-blue/10 text-brand-blue hover:bg-brand-blue/15">{{ t.topic }}</span>
+    <details class="audience-details mt-6">
+      <summary class="mx-auto w-fit cursor-pointer inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-blue-dark transition-colors">
+        <span class="option-row-closed">See the full breakdown</span><span class="option-row-opened">Hide the full breakdown</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 option-row-chevron"></i>
+      </summary>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+        {% for chart in site.data.charts %}
+        {% assign top = chart.data | first %}
+        <div class="premium-card p-5">
+          <h3 class="text-base font-semibold text-foreground mb-4">{{ chart.title }}</h3>
+          <div class="space-y-2">
+            {% for item in chart.data %}
+            <div>
+              <div class="flex items-baseline justify-between gap-3 text-xs">
+                <span class="text-muted-foreground">{{ item.name }}</span>
+                <span class="font-semibold text-foreground">{{ item.value }}%</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-muted mt-1 overflow-hidden">
+                <div class="h-full rounded-full bg-brand-blue" style="width: {{ item.value | times: 100 | divided_by: top.value }}%;"></div>
+              </div>
+            </div>
             {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="audience-modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="audience-modal-title">
-      <div data-audience-modal-backdrop class="absolute inset-0 bg-brand-navy/70 backdrop-blur-sm"></div>
-      <div class="relative w-full max-w-xl max-h-[85vh] overflow-y-auto rounded-2xl bg-card border border-border shadow-2xl p-6 sm:p-8">
-        <button type="button" id="audience-modal-close" aria-label="Close audience analytics"
-          class="absolute top-4 right-4 w-9 h-9 rounded-full bg-secondary hover:bg-muted flex items-center justify-center transition-colors">
-          <i data-lucide="x" class="w-4 h-4 text-foreground"></i>
-        </button>
-        <div class="pr-10">
-          <span class="tag mb-3">Audience Analytics</span>
-          <h3 id="audience-modal-title" class="text-xl sm:text-2xl font-bold text-foreground"></h3>
-          <p class="text-sm text-muted-foreground mt-1">Complete percentage breakdown</p>
-        </div>
-        <div id="audience-modal-items" class="grid sm:grid-cols-2 gap-2 mt-6"></div>
-      </div>
-    </div>
-
-    <div class="mt-12">
-      <div class="max-w-2xl mx-auto text-center mb-8">
-        <h3 class="text-xl sm:text-2xl font-bold text-foreground mb-2">Why people join DataTalks.Club</h3>
-        <p class="text-muted-foreground">Members come to learn, meet peers, and move their careers forward.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-5">
-        {% for reason in site.data.community.reasons %}
-        <div class="premium-card p-5 flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center flex-shrink-0">
-            <i data-lucide="{{ reason.icon }}" class="w-5 h-5 text-brand-blue"></i>
-          </div>
-          <div>
-            <h4 class="font-semibold text-foreground mb-1">{{ reason.title }}</h4>
-            <p class="text-sm text-muted-foreground leading-relaxed">{{ reason.description }}</p>
           </div>
         </div>
         {% endfor %}
       </div>
-    </div>
-
+    </details>
   </div>
-
-  <script>
-    window.CHART_DATA = {{ site.data.charts | jsonify }};
-  </script>
 </section>

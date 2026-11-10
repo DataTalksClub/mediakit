@@ -24,6 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
+    <script>document.documentElement.classList.add("js");</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -194,6 +195,72 @@
           border-color: hsl(var(--brand-blue) / 0.3);
           color: hsl(var(--brand-blue));
         }
+
+        .goal-card {
+          @apply bg-card rounded-2xl border border-border p-4 sm:p-5 text-left transition-all duration-200 relative;
+          box-shadow: var(--shadow-card);
+        }
+        .goal-card:hover {
+          border-color: hsl(var(--brand-blue) / 0.4);
+          box-shadow: var(--shadow-card-hover);
+        }
+        .goal-card:focus-visible {
+          outline: 2px solid hsl(var(--ring));
+          outline-offset: 2px;
+        }
+        .goal-card[aria-pressed="true"] {
+          border-color: hsl(var(--brand-blue));
+          background: hsl(var(--brand-blue-light) / 0.45);
+          box-shadow: 0 0 0 1px hsl(var(--brand-blue)), var(--shadow-card);
+        }
+        .goal-card-icon {
+          @apply w-10 h-10 rounded-xl flex items-center justify-center mb-3 transition-colors;
+          background: hsl(var(--brand-blue) / 0.1);
+          color: hsl(var(--brand-blue));
+        }
+        .goal-card[aria-pressed="true"] .goal-card-icon {
+          background: hsl(var(--brand-blue));
+          color: white;
+        }
+
+        /* Without JavaScript every goal panel stays visible, one after another. */
+        .js .goal-panel { display: none; }
+        .js .goal-panel.is-active { display: block; }
+        .goal-empty { display: none; }
+        .js .goal-empty { display: block; }
+        .js .goal-empty.is-hidden { display: none; }
+
+        .option-row > summary,
+        .audience-details > summary { list-style: none; }
+        .option-row > summary::-webkit-details-marker,
+        .audience-details > summary::-webkit-details-marker { display: none; }
+        .option-row-opened { display: none; }
+        details[open] > summary .option-row-opened { display: inline; }
+        details[open] > summary .option-row-closed { display: none; }
+        .option-row-chevron { transition: transform 0.2s ease; }
+        details[open] > summary .option-row-chevron { transform: rotate(180deg); }
+        .option-row > summary:focus-visible {
+          outline: 2px solid hsl(var(--ring));
+          outline-offset: -2px;
+          border-radius: calc(var(--radius) + 4px);
+        }
+
+        .placeholder-tile {
+          @apply rounded-xl p-4 border-2 border-dashed;
+          border-color: hsl(38 92% 50% / 0.55);
+          background: hsl(45 93% 47% / 0.07);
+        }
+        .placeholder-badge {
+          @apply inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold uppercase tracking-wide;
+          background: hsl(45 93% 47% / 0.22);
+          color: hsl(26 90% 30%);
+        }
+        .placeholder-note {
+          @apply flex items-start gap-2 text-sm rounded-xl p-3 border border-dashed;
+          border-color: hsl(38 92% 50% / 0.55);
+          background: hsl(45 93% 47% / 0.07);
+          color: hsl(26 90% 26%);
+        }
       }
     </style>
   </head>
@@ -215,7 +282,6 @@
     </div>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
   </body>
 </html>

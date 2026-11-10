@@ -1,0 +1,67 @@
+# The sponsor starts here: what do they want? Each goal lists the formats that
+# fit it, best fit first (keys from `_data/options.yml`). `proof` is the single
+# piece of evidence shown next to the options.
+#
+# The "Show me everything" view is not a goal; it lists options.yml in full.
+
+- key: awareness
+  icon: megaphone
+  label: Brand awareness
+  hint: Put our name in front of data people
+  headline: Get your name in front of 130K+ data professionals
+  intro: A mention needs no work from your team beyond the copy. Start with the newsletter and add reach from there.
+  options: [newsletter-primary, social, newsletter-secondary, course-mention, podcast]
+  proof:
+    quote: "Our ebook has found the right audience through the newsletter and Alexey's personal recommendations on LinkedIn. This was one of the most fruitful collaborations in terms of lead acquisition."
+    author: Henrik Skogström
+    role: Head of Growth, Valohai
+
+- key: trial
+  icon: terminal
+  label: Hands-on product trial
+  hint: Get people to actually use the product
+  headline: Put your product in learners' hands
+  intro: Students install your tool, do homework with it, and often keep it for their final project. Course formats are how sponsors get real usage, not just views.
+  options: [course-workshop, course-module, workshop, in-person-workshop]
+  case_study: true
+  proof:
+    quote: "The number of people trying out dlt doubled. Our Slack community also saw a 25% increase in a month, largely thanks to the workshop."
+    author: Adrian Brudaru
+    role: dltHub
+
+- key: demo
+  icon: video
+  label: Short demo or workshop
+  hint: One session that shows what it does
+  headline: Show the product once, live or recorded
+  intro: A single session or a short video. The recording stays online and you can reuse it.
+  options: [workshop, product-video, video-article, in-person-workshop]
+  proof:
+    quote: "The workshop got over 10,000 views on YouTube. Plus, the participants really put the word out, doing a lot of the marketing legwork for us."
+    author: Adrian Brudaru
+    role: dltHub
+
+- key: long
+  icon: layers
+  label: Long format
+  hint: Deep, lasting integration
+  headline: Become part of how people learn the topic
+  intro: These formats take more effort and stay discoverable for years on GitHub, YouTube, and the website.
+  options: [course-module, course-workshop, podcast, guest-post]
+  case_study: true
+  proof:
+    quote: "We sponsored Module 7 of Machine Learning Zoomcamp. Over 165 students attempted the homework, and many used BentoML in their midterm and final projects."
+    author: Tim Liu
+    role: BentoML
+
+- key: promote
+  icon: send
+  label: Promote existing content
+  hint: We already have a webinar, e-book, or launch
+  headline: Send our audience to something you already made
+  intro: You bring the webinar, e-book, report, or launch. We put it in front of the right people and send you the click report.
+  options: [newsletter-standalone, newsletter-primary, newsletter-secondary, social, talk-newsletter]
+  proof:
+    quote: "DataTalks.Club continually delivers excellent content and consistently drives highly engaged people to AIIA events and research."
+    author: Daniel Jeffries
+    role: Managing Director, AI Infrastructure Alliance
