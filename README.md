@@ -34,8 +34,9 @@ that fit, then proof, audience, and contact.
 - `_data/options.yml` — every sponsorship format, once (price, reach, features, example)
 - `_data/goals.yml` — the goals and which formats each one leads to, best fit first
 - `_data/case_study.yml` — course case-study figures; an empty `value` renders as a
-  marked "Data pending" placeholder. Aggregates only, no personal data, no per-tool
-  usage numbers
+  marked "Data pending" placeholder. Verified 2025/2026 aggregates have explicit
+  denominators and definitions; missing outcomes remain pending. No personal data
+  or per-tool usage numbers
 - `assets/` — images, JS (mobile menu, lightbox, goal picker), favicons
 
 A goal can be linked directly: `#goal-awareness`, `#goal-trial`, `#goal-demo`,
@@ -45,3 +46,18 @@ A goal can be linked directly: `#goal-awareness`, `#goal-trial`, `#goal-demo`,
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which downloads the pinned
 rustkyll release, builds the site, and publishes it to GitHub Pages.
+
+## Proof verification
+
+See [proof sources and definitions](docs/2026-11-11-proof-sources.md).
+The audience enrichment is finished; missing enrollment, module completion, and
+future-employment outcomes must not be inferred from homework or profile data.
+
+Run only the focused proof/goal contracts locally:
+
+```bash
+uv run --with pyyaml python -m unittest discover -s tests -v
+```
+
+This branch is a review prototype. Do not merge or deploy to Pages until Alexey
+approves. The review tunnel is temporary and does not replace the published kit.

@@ -13,3 +13,5 @@ exclude:
   - .rustkyll/
   - .rustkyll-manifest.json
   - node_modules/
+  - docs/
+  - tests/

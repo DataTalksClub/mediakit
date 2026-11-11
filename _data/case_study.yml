@@ -1,43 +1,42 @@
-# Proof numbers from the Data Engineering Zoomcamp case studies.
-#
-# The case studies are still being built, so most values are not known yet.
-# Leave `value` empty for anything that is not final: the page then renders a
-# clearly marked placeholder instead of a number. Fill a value in only once the
-# case-study report has been reviewed.
-#
-# Rules for this file:
-#   - Aggregates only. No student names, emails, profile links, or employers
-#     tied to a person.
-#   - No per-tool usage numbers (for example how many projects used Airflow).
-#     Those are internal and do not go into sponsor-facing copy.
-
+# Reviewed aggregate facts only; never copy per-person records into this repo.
+# Snapshot: 2026-11-10, final DE Zoomcamp audience/enrichment reports.
+# See docs/2026-11-11-proof-sources.md for definitions and missing fields.
 course: Data Engineering Zoomcamp
-status: "Case study in progress. Figures marked as pending are placeholders, not results."
-
+status: "2025 and 2026 cohorts · Snapshot: 10 Nov 2026. Submission counts are not completion or pass counts. Pending fields are not results."
+method: "Audience profile: 973 distinct final-project submitters across both cohorts (6 participated in both); 631 have usable public-profile evidence. Profile figures describe this subset, not all enrolled learners. Employer affiliations are public self-reports, may be stale, and do not imply company endorsement."
 funnel:
   - label: Enrollments
-    detail: Learners registered for the cohort
+    detail: "Pending: verified registrations per cohort. Homework submitters are not enrollment counts."
     value:
-  - label: Module homework completions
-    detail: Learners who submitted homework for a sponsored module
+  - label: Module completions
+    detail: "Pending: verified completion criteria and counts per sponsored module and cohort."
     value:
-  - label: Final projects
-    detail: End-to-end projects submitted and peer-reviewed
-    value:
-
+  - label: Module 3 homework submitters
+    detail: "2025: 583; 2026: 873 unique submitters. Submission does not establish completion."
+    value: "583 / 873"
+  - label: Final-project submitters
+    detail: "2025: 366; 2026: 613 unique people. All submission attempts; not verified graduates."
+    value: "366 / 613"
+  - label: Submitted project repositories
+    detail: "2025: 381; 2026: 643 distinct repositories across all attempts. Not a count of passed projects."
+    value: "381 / 643"
 profile:
-  - label: Seniority
-    detail: Share of learners at mid-level and above
-    value:
+  - label: Mid-level and above
+    detail: "501 of 592 with known seniority: 388 mid-level, 43 senior, 70 lead+. 39 of the 631 enriched authors have unknown seniority."
+    value: "84.6%"
   - label: Roles
-    detail: Top job functions among learners
-    value:
-  - label: Companies
-    detail: Number of distinct employers represented
-    value:
-  - label: Freelancers
-    detail: Share of learners working independently
-    value:
+    detail: "Of 565 with known roles: 198 data engineering, 27 analytics engineering, 99 data analysis, 88 data science/ML, 116 software engineering, 37 other."
+    value: "198 / 565 DE"
+  - label: Companies represented
+    detail: "395 of 631 enriched authors name an employer, across 374 normalized employers. Includes Accenture (4), EPAM (4), Google (3), and TCS (3)."
+    value: "374"
+  - label: Freelancers and contractors
+    detail: "71 of 631 enriched authors (11.3%): 30 freelance, 20 self-employed, 21 contract. Contract roles are not necessarily independent consultants."
+    value: "71 / 631"
+  - label: Students and job seekers today
+    detail: "64 of 592 with known seniority (10.8%): 32 students and 32 job seekers. This is current positioning, not a future employment outcome."
+    value: "64 / 592"
   - label: Students employed next year
-    detail: Current students expected to be in a data role within 12 months
+    detail: "Pending: longitudinal follow-up measuring employment within 12 months. No verified count or forecast is available."
     value:
+employers: "Of the 395 authors naming employers: 108 enterprise (27.3%), 74 agency/consultancy (18.7%), 6 confirmed startup/scaleup (1.5%), 54 other (13.7%), 153 unknown (38.7%). Unknown companies are not assumed to be startups."

@@ -21,7 +21,7 @@
   label: Hands-on product trial
   hint: Get people to actually use the product
   headline: Put your product in learners' hands
-  intro: Students install your tool, do homework with it, and often keep it for their final project. Course formats are how sponsors get real usage, not just views.
+  intro: Let learners install your tool and practice with it through exercises or a course module. Explore the course evidence below; product adoption is not guaranteed.
   options: [course-workshop, course-module, workshop, in-person-workshop]
   case_study: true
   proof:
