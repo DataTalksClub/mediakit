@@ -1,0 +1,25 @@
+# Verified aggregate figures only; never copy per-person records into this repo.
+# Snapshot: 2026-11-10, final DE Zoomcamp audience reports.
+# Definitions and sources: docs/2026-11-11-proof-sources.md.
+#
+# `pending` are outcomes nobody has measured yet. They are listed by name and
+# never get a number until a verified count exists.
+course: Data Engineering Zoomcamp
+snapshot: "2025 and 2026 cohorts, snapshot 10 Nov 2026"
+verified:
+  - label: Final-project submitters
+    value: "366 in 2025, 613 in 2026"
+    detail: Unique people who submitted a project. Not verified graduates.
+  - label: Module 3 homework submitters
+    value: "583 in 2025, 873 in 2026"
+    detail: Unique submitters. A submission is not a completion.
+  - label: Mid-level and above
+    value: "84.6%"
+    detail: 501 of the 592 project submitters with known seniority.
+  - label: Work in data engineering
+    value: "198 of 565"
+    detail: Project submitters with a known role.
+pending:
+  - Enrollments per cohort
+  - Module completions
+  - Employment within 12 months

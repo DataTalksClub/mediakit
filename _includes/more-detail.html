@@ -1,0 +1,41 @@
+{%- comment -%}
+Optional detail, offered only after a goal is chosen and closed by default.
+Param: course (optional) adds the verified course figures.
+{%- endcomment -%}
+<div class="mt-8 border-t border-border">
+  <details class="more-detail">
+    <summary>Who you reach<i data-lucide="chevron-down" class="w-4 h-4 option-row-chevron"></i></summary>
+    <dl class="more-detail-body space-y-1.5 text-sm">
+      {% for chart in site.data.charts %}
+      <div class="flex gap-3">
+        <dt class="w-28 flex-shrink-0 text-muted-foreground">{{ chart.title }}</dt>
+        <dd class="text-foreground">{% for item in chart.data limit: 3 %}{{ item.name }} {{ item.value }}%{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </details>
+
+  {% if include.course %}
+  {% assign ca = site.data.course_audience %}
+  <details class="more-detail">
+    <summary>Who takes the courses<i data-lucide="chevron-down" class="w-4 h-4 option-row-chevron"></i></summary>
+    <div class="more-detail-body text-sm">
+      <p class="text-muted-foreground mb-3">{{ ca.course }}, {{ ca.snapshot }}.</p>
+      <dl class="space-y-2">
+        {% for item in ca.verified %}
+        <div>
+          <dt class="text-foreground"><strong>{{ item.value }}</strong> · {{ item.label }}</dt>
+          <dd class="text-xs text-muted-foreground">{{ item.detail }}</dd>
+        </div>
+        {% endfor %}
+      </dl>
+      <p class="text-xs text-muted-foreground mt-3" data-pending>Not measured yet, so not shown: {% for item in ca.pending %}{{ item | downcase }}{% unless forloop.last %}, {% endunless %}{% endfor %}.</p>
+    </div>
+  </details>
+  {% endif %}
+
+  <details class="more-detail">
+    <summary>Who has sponsored before<i data-lucide="chevron-down" class="w-4 h-4 option-row-chevron"></i></summary>
+    <p class="more-detail-body text-sm text-muted-foreground leading-relaxed">{{ site.data.sponsors | join: ", " }}.</p>
+  </details>
+</div>

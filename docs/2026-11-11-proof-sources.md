@@ -21,11 +21,15 @@ outside this repository. Only approved aggregates are reproduced in the kit.
   Role counts sum to 565. Employer segments sum to 395. Public self-reports
   can be stale; employer inclusion is not sponsorship or endorsement.
 
+The kit shows four of these aggregates (`_data/course_audience.yml`):
+final-project submitters, Module 3 homework submitters, the mid-level-and-above
+share, and the data engineering role count. The rest stay in the reports.
+
 Still missing: verified cohort registrations; module completion criteria and
 counts (a homework submission alone is not completion); longitudinal student
-employment within 12 months. Each has a named, visible Data pending tile.
-No inference from current job-seeker status to future employment is made.
+employment within 12 months. The kit names each as not measured and shows no
+number. No inference from current job-seeker status to future employment is
+made.
 
 No per-person records, student names, handles, links, emails, or tool-usage
-figures are reproduced. Existing sponsor testimonials remain attributed to
-sponsor representatives and are separate from the learner aggregates.
+figures are reproduced. The kit contains no case studies and no testimonials.

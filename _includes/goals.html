@@ -1,139 +1,94 @@
-<section class="pt-24 pb-10 lg:pt-32 lg:pb-12 bg-background relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/[0.02] via-transparent to-transparent"></div>
+{%- comment -%}
+The whole kit. First screen: one question, six answers, nothing else.
+Picking an answer replaces the question with that goal's formats.
+Each answer is a plain link to #goal-<key>, so it can be shared and the back
+button works. Without JavaScript every panel is simply shown in order.
+{%- endcomment -%}
+<section id="goals" class="pt-24 pb-16 lg:pt-32 lg:pb-24 scroll-mt-0">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6">
 
-  <div class="section-container relative">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="tag mb-4">Media kit</span>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4">Sponsor DataTalks.Club</h1>
-      <p class="text-lg text-muted-foreground leading-relaxed">
-        One of the largest online communities of data and AI practitioners. Tell us what you want to achieve and we'll show the formats that fit, what they cost, and what sponsors got out of them.
+    <div class="goal-picker">
+      <h1 class="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-3">Sponsor DataTalks.Club</h1>
+      <p class="text-muted-foreground leading-relaxed mb-10">
+        A community of data and AI practitioners: {{ site.data.stats[1].value }} newsletter subscribers and {{ site.data.stats[0].value }} Slack members.
       </p>
+
+      <h2 class="text-lg font-semibold text-foreground mb-3">What do you want to achieve?</h2>
+      <nav class="goal-list" aria-label="Sponsorship goal">
+        {% for goal in site.data.goals %}
+        <a href="#goal-{{ goal.key }}" class="goal-link">
+          <span class="flex-1">
+            <span class="block font-semibold text-foreground font-display">{{ goal.label }}</span>
+            <span class="block text-sm text-muted-foreground">{{ goal.hint }}</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-muted-foreground"></i>
+        </a>
+        {% endfor %}
+        <a href="#goal-everything" class="goal-link">
+          <span class="flex-1">
+            <span class="block font-semibold text-foreground font-display">Show me everything</span>
+            <span class="block text-sm text-muted-foreground">All formats and prices in one list</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-muted-foreground"></i>
+        </a>
+      </nav>
     </div>
-
-    <dl class="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-4">
-      {% for stat in site.data.stats %}
-      <div class="text-center">
-        <dd class="text-2xl font-bold text-foreground font-display">{{ stat.value }}</dd>
-        <dt class="text-xs text-muted-foreground font-medium">{{ stat.label }}</dt>
-      </div>
-      {% endfor %}
-    </dl>
-  </div>
-</section>
-
-<section id="goals" class="py-12 lg:py-16 bg-secondary relative scroll-mt-16">
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
-
-  <div class="section-container">
-    <div class="max-w-2xl mx-auto text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-2 tracking-tight">What do you want to achieve?</h2>
-      <p class="text-muted-foreground">Pick one. You can switch at any time.</p>
-    </div>
-
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4" role="group" aria-label="Sponsorship goal">
-      {% for goal in site.data.goals %}
-      <button type="button" class="goal-card" data-goal="{{ goal.key }}" aria-pressed="false" aria-controls="goal-{{ goal.key }}">
-        <span class="goal-card-icon"><i data-lucide="{{ goal.icon }}" class="w-5 h-5"></i></span>
-        <span class="block font-semibold text-foreground font-display text-base sm:text-lg leading-snug">{{ goal.label }}</span>
-        <span class="block text-xs sm:text-sm text-muted-foreground mt-1 leading-snug">{{ goal.hint }}</span>
-      </button>
-      {% endfor %}
-      <button type="button" class="goal-card" data-goal="everything" aria-pressed="false" aria-controls="goal-everything">
-        <span class="goal-card-icon"><i data-lucide="list" class="w-5 h-5"></i></span>
-        <span class="block font-semibold text-foreground font-display text-base sm:text-lg leading-snug">Show me everything</span>
-        <span class="block text-xs sm:text-sm text-muted-foreground mt-1 leading-snug">All formats and prices in one list</span>
-      </button>
-    </div>
-
-    <p id="goal-empty" class="goal-empty text-center text-sm text-muted-foreground mt-8">
-      <i data-lucide="arrow-up" class="w-4 h-4 inline-block -mt-0.5"></i>
-      Choose a goal to see the matching formats and prices.
-    </p>
 
     {% for goal in site.data.goals %}
-    <div id="goal-{{ goal.key }}" data-goal-panel="{{ goal.key }}" class="goal-panel mt-10 scroll-mt-24">
-      <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
-        <div class="lg:col-span-2">
-          <a href="#goals" class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:text-brand-blue-dark transition-colors mb-3">
-            <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
-            Change goal
-          </a>
-          <h3 class="text-xl sm:text-2xl font-bold text-foreground mb-2">{{ goal.headline }}</h3>
-          <p class="text-muted-foreground leading-relaxed mb-6">{{ goal.intro }}</p>
+    <div id="goal-{{ goal.key }}" data-goal-panel="{{ goal.key }}" class="goal-panel">
+      <a href="#goals" class="goal-back"><i data-lucide="arrow-left" class="w-4 h-4"></i>Change goal</a>
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-2">{{ goal.label }}</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">{{ goal.intro }}</p>
 
-          <div class="space-y-3">
-            {% for key in goal.options %}{% for opt in site.data.options %}{% if opt.key == key %}
-            {% if forloop.parentloop.first %}
-            {% include option-row.html opt=opt best=true open=true %}
-            {% else %}
-            {% include option-row.html opt=opt %}
-            {% endif %}
-            {% endif %}{% endfor %}{% endfor %}
-          </div>
-        </div>
-
-        <aside class="lg:sticky lg:top-24 space-y-4">
-          <figure class="premium-card p-5">
-            <div class="text-xs font-semibold text-foreground uppercase tracking-wider mb-3">What a sponsor said</div>
-            <blockquote class="text-sm text-muted-foreground leading-relaxed">“{{ goal.proof.quote }}”</blockquote>
-            <figcaption class="mt-3">
-              <div class="text-sm font-semibold text-foreground">{{ goal.proof.author }}</div>
-              <div class="text-xs text-muted-foreground">{{ goal.proof.role }}</div>
-            </figcaption>
-            <a href="#proof" class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:text-brand-blue-dark transition-colors">
-              {% if goal.case_study %}See the course case study{% else %}More proof{% endif %}
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </figure>
-
-          <div class="rounded-2xl bg-brand-navy p-5 text-center">
-            <p class="text-sm text-white/80 mb-4">Tell Alexey this is your goal and get a concrete proposal.</p>
-            <a href="mailto:alexey@datatalks.club?subject=Sponsorship%3A%20{{ goal.label | url_encode | replace: "+", "%20" }}" class="btn-primary gap-2 w-full">
-              <i data-lucide="mail" class="w-4 h-4"></i>
-              Ask about this
-            </a>
-          </div>
-        </aside>
+      <div class="option-list">
+        {% for key in goal.options %}{% for opt in site.data.options %}{% if opt.key == key %}
+        {% if forloop.parentloop.first %}
+        {% include option-row.html opt=opt best=true %}
+        {% else %}
+        {% include option-row.html opt=opt %}
+        {% endif %}
+        {% endif %}{% endfor %}{% endfor %}
       </div>
+
+      <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <a href="mailto:alexey@datatalks.club?subject=Sponsorship%3A%20{{ goal.label | url_encode | replace: "+", "%20" }}" class="btn-primary gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Email Alexey about this
+        </a>
+        <a href="#goal-everything" class="text-sm font-medium text-brand-blue hover:text-brand-blue-dark transition-colors">See all formats</a>
+      </div>
+
+      {% include more-detail.html course=goal.course_audience %}
     </div>
     {% endfor %}
 
-    <div id="goal-everything" data-goal-panel="everything" class="goal-panel mt-10 scroll-mt-24">
-      <h3 class="text-xl sm:text-2xl font-bold text-foreground mb-2">Every format, one list</h3>
-      <p class="text-muted-foreground leading-relaxed mb-2">{{ site.data.options | size }} formats across {{ site.data.options | map: "channel" | uniq | size }} channels. Open a row for what's included and a real example. Formats can be combined.</p>
+    <div id="goal-everything" data-goal-panel="everything" class="goal-panel">
+      <a href="#goals" class="goal-back"><i data-lucide="arrow-left" class="w-4 h-4"></i>Change goal</a>
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-2">All formats and prices</h2>
+      <p class="text-muted-foreground leading-relaxed mb-2">Open a row for what's included. Formats can be combined.</p>
 
       {% assign prev_channel = "" %}
-      <div class="space-y-3">
-        {% for opt in site.data.options %}
-        {% if opt.channel != prev_channel %}
-        <div class="pt-6 flex items-baseline justify-between flex-wrap gap-x-4 gap-y-1">
-          <h4 class="text-sm font-semibold text-foreground uppercase tracking-wider">{{ opt.channel }}</h4>
-          {% if opt.channel == "Zoomcamp courses" %}
-          <p class="text-xs text-muted-foreground">
-            {% for course in site.data.courses %}{{ course.name }} ({{ course.date }}){% unless forloop.last %} · {% endunless %}{% endfor %}
-          </p>
-          {% endif %}
-        </div>
-        {% assign prev_channel = opt.channel %}
-        {% endif %}
-        {% include option-row.html opt=opt %}
-        {% endfor %}
+      {% for opt in site.data.options %}
+      {% if opt.channel != prev_channel %}
+      {% unless forloop.first %}</div>{% endunless %}
+      <h3 class="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-8 mb-2">{{ opt.channel }}</h3>
+      <div class="option-list">
+      {% assign prev_channel = opt.channel %}
+      {% endif %}
+      {% include option-row.html opt=opt compact=true %}
+      {% if forloop.last %}</div>{% endif %}
+      {% endfor %}
+
+      <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <a href="mailto:alexey@datatalks.club?subject=Sponsorship" class="btn-primary gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Email Alexey
+        </a>
+        <span class="text-sm text-muted-foreground">Custom ideas are welcome.</span>
       </div>
 
-      <div class="premium-card p-5 mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-        <div class="flex-1">
-          <h4 class="font-semibold text-foreground mb-2">Something else in mind?</h4>
-          <div class="flex flex-wrap gap-2">
-            {% for idea in site.data.other_ideas %}
-            <span class="px-3 py-1 rounded-full bg-secondary text-xs font-medium text-foreground border border-border/50">{{ idea }}</span>
-            {% endfor %}
-          </div>
-        </div>
-        <a href="#contact" class="btn-primary gap-2 self-start sm:self-center">
-          Discuss a custom idea
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
-      </div>
+      {% include more-detail.html course=true %}
     </div>
+
   </div>
 </section>

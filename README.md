@@ -21,23 +21,22 @@ Output goes to `_site/`.
 
 ## Structure
 
-The page is goal-first: a sponsor picks what they want and sees only the formats
-that fit, then proof, audience, and contact.
+The page is one question: what does the sponsor want to achieve? Picking an
+answer replaces the question with at most three matching formats. All other
+detail is closed until asked for. See
+[the audit and plan](docs/2026-11-11-rethink-audit.md).
 
-- `_config.yml` — site config and SEO metadata
-- `index.html` — page shell (uses the `default` layout)
-- `_layouts/default.html` — `<head>`, Tailwind (Play CDN) config, component styles
-- `_includes/goals.html` — hero, goal picker, one panel per goal, and the full list
-- `_includes/option-row.html` — one format as a collapsible row
-- `_includes/proof.html`, `proof-tile.html` — case study, testimonials, sponsor names
-- `_includes/audience.html` — audience headline figures and the full breakdown
-- `_data/options.yml` — every sponsorship format, once (price, reach, features, example)
-- `_data/goals.yml` — the goals and which formats each one leads to, best fit first
-- `_data/case_study.yml` — course case-study figures; an empty `value` renders as a
-  marked "Data pending" placeholder. Verified 2025/2026 aggregates have explicit
-  denominators and definitions; missing outcomes remain pending. No personal data
-  or per-tool usage numbers
-- `assets/` — images, JS (mobile menu, lightbox, goal picker), favicons
+- `_config.yml`: site config and SEO metadata
+- `index.html`: page shell (uses the `default` layout)
+- `_layouts/default.html`: `<head>`, Tailwind (Play CDN) config, component styles
+- `_includes/goals.html`: the question, one panel per goal, and the full list
+- `_includes/option-row.html`: one format as a collapsible row
+- `_includes/more-detail.html`: optional audience detail, closed by default
+- `_data/goals.yml`: the goals and the formats each leads to, best fit first
+- `_data/options.yml`: every sponsorship format, once (price, reach, features, example)
+- `_data/course_audience.yml`: verified course aggregates, and the outcomes
+  not measured yet, which never get a number. No personal data
+- `assets/`: images, JS (goal picker), favicons
 
 A goal can be linked directly: `#goal-awareness`, `#goal-trial`, `#goal-demo`,
 `#goal-long`, `#goal-promote`, `#goal-everything`.
