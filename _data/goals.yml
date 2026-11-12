@@ -1,0 +1,39 @@
+# The whole page is this one question: what does the sponsor want?
+# Each goal leads to at most three formats, best fit first (keys from
+# `_data/options.yml`). Anything else is one click away under "Show me
+# everything", which is not a goal: it lists options.yml in full.
+#
+#   course_audience  true shows the verified course figures as an optional
+#                    detail for that goal (`_data/course_audience.yml`)
+
+- key: awareness
+  label: Brand awareness
+  hint: Get our name in front of data people
+  intro: A mention needs no work from your team beyond the copy.
+  options: [newsletter-primary, social, course-mention]
+
+- key: trial
+  label: Hands-on product trial
+  hint: Get people to actually use the product
+  intro: Learners install your tool and practice with it. Adoption is not guaranteed.
+  options: [course-workshop, course-module, workshop]
+  course_audience: true
+
+- key: demo
+  label: Short demo or workshop
+  hint: One session that shows what it does
+  intro: A single session or a short video. The recording stays online and you can reuse it.
+  options: [workshop, product-video, in-person-workshop]
+
+- key: long
+  label: Long format
+  hint: Deep, lasting integration
+  intro: More effort, and it stays discoverable for years on GitHub, YouTube, and the website.
+  options: [course-module, podcast, guest-post]
+  course_audience: true
+
+- key: promote
+  label: Promote existing content
+  hint: We already have a webinar, e-book, or launch
+  intro: You bring the content. We put it in front of the audience and send you the click report.
+  options: [newsletter-standalone, newsletter-primary, social]

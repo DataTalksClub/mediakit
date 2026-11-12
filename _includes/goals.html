@@ -1,0 +1,94 @@
+{%- comment -%}
+The whole kit. First screen: one question, six answers, nothing else.
+Picking an answer replaces the question with that goal's formats.
+Each answer is a plain link to #goal-<key>, so it can be shared and the back
+button works. Without JavaScript every panel is simply shown in order.
+{%- endcomment -%}
+<section id="goals" class="pt-24 pb-16 lg:pt-32 lg:pb-24 scroll-mt-0">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6">
+
+    <div class="goal-picker">
+      <h1 class="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-3">Sponsor DataTalks.Club</h1>
+      <p class="text-muted-foreground leading-relaxed mb-10">
+        A community of data and AI practitioners: {{ site.data.stats[1].value }} newsletter subscribers and {{ site.data.stats[0].value }} Slack members.
+      </p>
+
+      <h2 class="text-lg font-semibold text-foreground mb-3">What do you want to achieve?</h2>
+      <nav class="goal-list" aria-label="Sponsorship goal">
+        {% for goal in site.data.goals %}
+        <a href="#goal-{{ goal.key }}" class="goal-link">
+          <span class="flex-1">
+            <span class="block font-semibold text-foreground font-display">{{ goal.label }}</span>
+            <span class="block text-sm text-muted-foreground">{{ goal.hint }}</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-muted-foreground"></i>
+        </a>
+        {% endfor %}
+        <a href="#goal-everything" class="goal-link">
+          <span class="flex-1">
+            <span class="block font-semibold text-foreground font-display">Show me everything</span>
+            <span class="block text-sm text-muted-foreground">All formats and prices in one list</span>
+          </span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-muted-foreground"></i>
+        </a>
+      </nav>
+    </div>
+
+    {% for goal in site.data.goals %}
+    <div id="goal-{{ goal.key }}" data-goal-panel="{{ goal.key }}" class="goal-panel">
+      <a href="#goals" class="goal-back"><i data-lucide="arrow-left" class="w-4 h-4"></i>Change goal</a>
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-2">{{ goal.label }}</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">{{ goal.intro }}</p>
+
+      <div class="option-list">
+        {% for key in goal.options %}{% for opt in site.data.options %}{% if opt.key == key %}
+        {% if forloop.parentloop.first %}
+        {% include option-row.html opt=opt best=true %}
+        {% else %}
+        {% include option-row.html opt=opt %}
+        {% endif %}
+        {% endif %}{% endfor %}{% endfor %}
+      </div>
+
+      <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <a href="mailto:alexey@datatalks.club?subject=Sponsorship%3A%20{{ goal.label | url_encode | replace: "+", "%20" }}" class="btn-primary gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Email Alexey about this
+        </a>
+        <a href="#goal-everything" class="text-sm font-medium text-brand-blue hover:text-brand-blue-dark transition-colors">See all formats</a>
+      </div>
+
+      {% include more-detail.html course=goal.course_audience %}
+    </div>
+    {% endfor %}
+
+    <div id="goal-everything" data-goal-panel="everything" class="goal-panel">
+      <a href="#goals" class="goal-back"><i data-lucide="arrow-left" class="w-4 h-4"></i>Change goal</a>
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-2">All formats and prices</h2>
+      <p class="text-muted-foreground leading-relaxed mb-2">Open a row for what's included. Formats can be combined.</p>
+
+      {% assign prev_channel = "" %}
+      {% for opt in site.data.options %}
+      {% if opt.channel != prev_channel %}
+      {% unless forloop.first %}</div>{% endunless %}
+      <h3 class="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-8 mb-2">{{ opt.channel }}</h3>
+      <div class="option-list">
+      {% assign prev_channel = opt.channel %}
+      {% endif %}
+      {% include option-row.html opt=opt compact=true %}
+      {% if forloop.last %}</div>{% endif %}
+      {% endfor %}
+
+      <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <a href="mailto:alexey@datatalks.club?subject=Sponsorship" class="btn-primary gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Email Alexey
+        </a>
+        <span class="text-sm text-muted-foreground">Custom ideas are welcome.</span>
+      </div>
+
+      {% include more-detail.html course=true %}
+    </div>
+
+  </div>
+</section>

@@ -24,6 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
+    <script>document.documentElement.classList.add("js");</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -114,86 +115,69 @@
       }
 
       @layer components {
-        .section-container {
-          @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
-        }
-
-        .premium-card {
-          @apply bg-card rounded-2xl border border-border relative overflow-hidden;
-          box-shadow: var(--shadow-card);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .premium-card::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background: linear-gradient(135deg, hsl(215 70% 45% / 0.02), transparent);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        .premium-card:hover {
-          border-color: hsl(var(--brand-blue) / 0.3);
-          box-shadow: var(--shadow-card-hover);
-        }
-        .premium-card:hover::before {
-          opacity: 1;
-        }
-
-        .price-badge {
-          @apply inline-flex items-center px-4 py-2 rounded-xl font-bold text-lg;
+        .btn-primary {
+          @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-xl text-white transition-colors;
           background: hsl(var(--brand-blue));
-          color: white;
-          box-shadow: 0 2px 8px hsl(215 70% 45% / 0.3);
         }
+        .btn-primary:hover { background: hsl(var(--brand-blue-dark)); }
 
-        .metric-pill {
-          @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm;
-          background: hsl(var(--brand-blue) / 0.08);
+        .tag {
+          @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+          background: hsl(var(--brand-blue) / 0.1);
           color: hsl(var(--brand-blue));
-          font-weight: 600;
         }
 
-        .feature-item {
-          @apply flex items-start gap-3 text-sm text-muted-foreground py-1.5;
+        /* The question: six plain links in one card. */
+        .goal-list,
+        .option-list {
+          @apply bg-card rounded-2xl border border-border overflow-hidden;
+          box-shadow: var(--shadow-card);
         }
+        .goal-list > * + *,
+        .option-list > * + * { @apply border-t border-border; }
+        .goal-link { @apply flex items-center gap-3 px-5 py-4 transition-colors; }
+        .goal-link:hover { background: hsl(var(--brand-blue-light) / 0.35); }
+        .goal-link:focus-visible,
+        .option-row > summary:focus-visible,
+        .more-detail > summary:focus-visible {
+          outline: 2px solid hsl(var(--ring));
+          outline-offset: -2px;
+        }
+        .goal-back {
+          @apply inline-flex items-center gap-1.5 text-sm font-medium mb-6 transition-colors;
+          color: hsl(var(--brand-blue));
+        }
+        .goal-back:hover { color: hsl(var(--brand-blue-dark)); }
+
+        /* With JavaScript the page shows either the question or one goal.
+           Without it, the question and every goal are shown in order. */
+        .goal-panel { @apply mt-16; }
+        .js .goal-panel { display: none; margin-top: 0; }
+        .js .goal-panel.is-active { display: block; }
+        .js .has-goal .goal-picker { display: none; }
+
+        .option-row > summary { @apply flex items-start gap-4 px-5 py-4 cursor-pointer; }
+        .option-row > summary:hover { background: hsl(var(--brand-blue-light) / 0.35); }
+        .option-row-body { @apply px-5 pb-5; }
+        .option-row > summary,
+        .more-detail > summary { list-style: none; }
+        .option-row > summary::-webkit-details-marker,
+        .more-detail > summary::-webkit-details-marker { display: none; }
+        .option-row-chevron { margin-top: 0.3rem; transition: transform 0.2s ease; }
+        details[open] > summary .option-row-chevron { transform: rotate(180deg); }
+
+        .feature-item { @apply flex items-start gap-3 text-sm text-muted-foreground py-1; }
         .feature-item::before {
           content: "";
           @apply w-1.5 h-1.5 rounded-full bg-brand-blue mt-2 flex-shrink-0;
         }
 
-        .glass {
-          background: hsl(var(--card) / 0.8);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
+        .more-detail { @apply border-b border-border; }
+        .more-detail > summary {
+          @apply flex items-center justify-between gap-3 py-3 cursor-pointer text-sm font-medium text-foreground;
         }
-
-        .stat-card {
-          @apply bg-card rounded-2xl p-6 border border-border transition-all duration-300 relative overflow-hidden;
-          box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary {
-          @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-xl text-white transition-all duration-300;
-          background: hsl(var(--brand-blue));
-          box-shadow: 0 2px 8px hsl(215 70% 45% / 0.25);
-        }
-        .btn-primary:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px hsl(215 70% 45% / 0.35);
-        }
-
-        .tag {
-          @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
-          background: hsl(var(--brand-blue) / 0.1);
-          color: hsl(var(--brand-blue));
-        }
-
-        .tag-outline {
-          @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border;
-          border-color: hsl(var(--brand-blue) / 0.3);
-          color: hsl(var(--brand-blue));
-        }
+        .more-detail > summary .option-row-chevron { margin-top: 0; color: hsl(var(--muted-foreground)); }
+        .more-detail-body { @apply pb-4; }
       }
     </style>
   </head>
@@ -205,17 +189,7 @@
     </main>
     {% include footer.html %}
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="fixed inset-0 z-[60] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-      <button type="button" id="lightbox-close" aria-label="Close"
-        class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
-        <i data-lucide="x" class="w-6 h-6 text-white"></i>
-      </button>
-      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] rounded-xl shadow-2xl" />
-    </div>
-
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
   </body>
 </html>
